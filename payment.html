@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- custom css link-->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!--font-awesome lik-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!--slick css link-->
+    <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/> -->
+    <!-- slick-theme.css- the default styling -->
+    <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/slick-theme.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/slick.css"> -->
+
+    <title>Payment | Boxiew</title>
+</head>
+<body>
+  <!--Main Navigation-->
+  <header>
+    <!-- Navbar top start-->
+    <nav class="navbar bg-body-tertiary navbar-expand-md shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a>
+        <button  class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- <div class="search ">
+              <form action="" role="search">
+                <div class="input-group ">
+                  <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
+                  <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+              </form>
+            </div> -->
+            <ul class="navbar-nav  ms-auto ">
+              <li class="nav-item mx-auto"><a href="listing.html" class="nav-link"> Listing</a></li>
+              <li class="nav-item mx-auto"><a href="shopping.html" class="nav-link">Shopping</a></li>
+              <li class="nav-item mx-auto"><a href="wishlist.html" class="nav-link">Wishlist</a></li>
+              <li class="nav-item mx-auto"><a href="myCart.html" class="nav-link">Cart</a></li>
+              <li class="nav-item  mx-auto" ><a href="userProfile.html"  class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket pe-2"></i>Sign In</a></li>
+              <li class="nav-item  mx-auto"><div class="add-listing button-outline rounded-pill p-0"><a href="#" class="nav-link px-4">Add Listing<i class="fa-solid fa-plus ms-2 border rounded-circle "></i></a></div></li>
+        
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar top end-->
+
+    <!-- nav bottom start  -->
+    <nav id="nav-bottom" class="fixed-bottom nav-bottom">
+      
+      <div class="container">
+        
+        <div class=" " >
+          <ul class="d-flex justify-content-between" >
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm " aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm active" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav bottom end  -->
+
+   
+  </header>
+  <!--Main Navigation-->
+
+  <!--start main-->
+  <main> 
+    <!--cart step card start-->
+    <section id="my-cart" class="my-cart">
+      <div class="container d-flex justify-content-center">
+          <div class="cart-wrap">
+              <div class="cart-step d-flex  justify-content-around  ">
+                  <div class="">
+                      <div class="card border-0">
+                          <div class="text-center "><i class="fa-solid fa-cart-plus "></i></div>
+                          <div class="card-body ">
+                              <h6 class="text-center"><span>My </span>Cart</h6>
+                              <p class="text-center"><small>01</small></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="card border-0">
+                          <div class="text-center"><i class="fa-solid fa-truck-arrow-right "></i></div>
+                          <div class="card-body ">
+                              <h6>Shipping</h6>
+                              <p class="text-center"><small>02</small></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="card border-0">
+                          <div class="text-center"><i class="fa-solid fa-credit-card active"></i></div>
+                          <div class="card-body ">
+                              <h6>Payment</h6>
+                              <p class="text-center"><small>03</small></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="card border-0">
+                          <div class="text-center "><i class="fa-solid fa-square-check"></i></div>
+                          <div class="card-body ">
+                              <h6>Confirm</h6>
+                              <p class="text-center"><small>04</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!--cart step card end-->
+
+    <!--payment start-->
+    <section id="payment" class="payment">
+        <div class="container d-flex justify-content-center">
+            <div class="pay-wrap  ">
+                <div class="row row-cols-1 row-cols-md-2">
+                  <div class="col">
+                    <div class="pay-layout rounded px-4 py-3">
+                      <ul class="nav nav-underline mb-3 justify-content-around" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="true">Card</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-mobile-banking-tab" data-bs-toggle="pill" data-bs-target="#pills-mobile-banking" type="button" role="tab" aria-controls="pills-mobile-banking" aria-selected="false">Mobile Banking</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-cash-tab" data-bs-toggle="pill" data-bs-target="#pills-cash" type="button" role="tab" aria-controls="pills-cash" aria-selected="false">Cash On Delivery</button>
+                        </li>
+                        
+                      </ul>
+                      <div class="tab-content mt-5" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab" tabindex="0">
+                            <!-- <div class="save-card ">
+                                <form action="">
+                                    <div class="card-form">
+                                      <h6>Save Card</h6>
+                                      <div class="card-design mt-4 ">
+                                        <div class="form-check ">
+                                          <input class="form-check-input" name="card" type="checkbox" value="card-1" id="card-1">
+                                          <label class="form-check-label d-flex align-items-center card-label" for="card-1">
+                                            <div class="d-flex mt-4 card-layout rounded px-4 py-2 align-items-center">
+                                                <div class="card-img me-4"><img class="img-fluid"  src="image/myCart/master-card.png" alt=""></div>
+                                                <div>**** **** **** 2457</div>
+                                                <div class="ms-auto" type="submit">Remove Card</div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                          <input class="form-check-input" name="card" type="checkbox" value="card-2" id="card-2">
+                                          <label class="form-check-label card-label" for="card-2">
+                                            <div class="d-flex mt-3 card-layout rounded px-4 py-2 align-items-center">
+                                                <div class="card-img me-4"><img class="img-fluid"  src="image/myCart/visa-card.png" alt=""></div>
+                                                <div>**** **** **** 2457</div>
+                                                <div class="ms-auto" type="submit">Remove Card</div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                        
+    
+                                      </div>
+                                    </div>
+                                  </form>
+    
+                            </div> -->
+    
+                            <div class="add-card mt-4">
+                                <h6>Card Info</h6>
+                                <div class="mt-3">
+                                    <form>
+                                        <div class="mb-3">
+                                          <label for="card-holder" class="form-label">Card Holder Name<span class="required text-danger">*</span></label>
+                                          <input type="text" class="form-control" id="card-holder"  required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="card-num" class="form-label">Card Number<span class="required text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="card-num"  aria-describedby="cNumHelp" required>
+                                          </div>
+                                        <div class="mb-3 row ">
+                                            <div class="col">
+                                              <label for="ex-date" class="form-label">Expire Date<span class="required text-danger">*</span></label>
+                                              <input type="date" class="form-control" id="ex-date" placeholder="Expire date" aria-describedby="dateHelp" required>
+                                            </div>
+                                            <div class="col">
+                                                <label for="cvc" class="form-label">CVC<span class="required text-danger">*</span></label>
+                                                <input type="number" class="form-control" id="cvc"  aria-describedby="cvcHelp" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 mt-3 form-check d-flex justify-content-between">
+                                          <div><input type="checkbox" class="form-check-input" id="read-agr" required>
+                                            <label class="form-check-label" for="read-agr"><small>Yes, Read & Agree.</small></label>
+                                            </div>
+                                          <span><a href="#" class="terms-link">Terms & Conditions<small><i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></small></a></span>
+                                        </div>
+    
+                                        <div class=" d-flex justify-content-center mt-5 mb-3"><button class="continue button-outline border-0 rounded-pill px-5  text-center add-btn d-flex " type="submit">Submit</button></div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-mobile-banking" role="tabpanel" aria-labelledby="pills-mobile-banking-tab" tabindex="0">
+                          
+                          <form>
+                            <div class="d-flex">
+                              <!-- <label style="width: 250px !important;" for="payable-num " class="form-label ">Mobile Banking<span class="required text-danger" >*</span></label> -->
+                              <select  class="form-select mb-3" aria-label="Default select" id="payable-num" >
+                                  <option selected required>Select Mobile Banking</option>
+                                  <option class="pay-rv-option" onclick="showPayNum()"  value="1">bKash</option>
+                                  <option class="pay-rv-option" onclick="showPayNum()" value="2">Rocket</option>
+                                  <option class="pay-rv-option" onclick="showPayNum()" type="button" value="3">Nagat</option>
+                              </select>
+                              <!-- <div class="test" onclick="showPayNum()" type="button">test</div> -->
+                            </div>
+                            
+                            <div class="mb-3 row pay-rv-num" id="pay-rv-num">
+                              <div class="col">
+                                <label for="office-num" class="form-label">Payment number</label>
+                                <input type="number" class="form-control" id="office-num" placeholder="+88 01711-XXXXXX" aria-describedby="numHelp" disabled>
+                              </div>
+                            </div>
+  
+                            <div class="mb-3 row ">
+                              <div class="col">
+                                <label for="sender-num" class="form-label">Mobile Number<span class="required text-danger">*</span></label>
+                                <input type="number" class="form-control" id="sender-num" placeholder="Your mobile number" aria-describedby="numHelp" required>
+                              </div>
+                            </div>
+  
+                            <div class="mb-3 row ">
+                                <div class="col">
+                                  <label for="trans-id" class="form-label">Transaction ID<span class="required text-danger">*</span></label>
+                                  <input type="number" class="form-control" id="trans-id" placeholder="Transaction ID" aria-describedby="idHelp" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 form-check d-flex justify-content-between">
+                              <div><input type="checkbox" class="form-check-input" id="read-agr" required>
+                                <label class="form-check-label" for="read-agr"><small>Yes, Read & Agree.</small></label>
+                                </div>
+                              <span><a href="#" class="terms-link">Terms & Conditions<small><i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></small></a></span>
+                            </div>
+  
+                            <!-- <div class="cart-action d-flex justify-content-between mt-5 mb-3">
+                              <div class="return-shop"><a href="shipping.html"><i class="fa-solid fa-arrow-left-long me-2"></i>Return to Shipping</a></div>
+                              <div ><a href="payment.html"><button class="continue button border-0" type="submit">Procced to Payment</button></a></div>
+                            </div> -->
+                            
+                          </form>
+                        </div>
+                        <div class="tab-pane fade" id="pills-cash" role="tabpanel" aria-labelledby="pills-cash-tab" tabindex="0">
+                          <form action="">
+                            <h5>Cash On Delivery?</h5>
+                            <div class="mb-3 mt-3 form-check d-flex justify-content-between">
+                              <div><input type="checkbox" class="form-check-input" id="read-agr" required>
+                                <label class="form-check-label" for="read-agr"><small>Yes, Read & Agree.</small></label>
+                                </div>
+                              <span><a href="#" class="terms-link">Terms & Conditions<small><i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></small></a></span>
+                            </div>
+  
+                            <!-- <div class="cart-action d-flex justify-content-between mt-5 mb-3">
+                              <div class="return-shop"><a href="shipping.html"><i class="fa-solid fa-arrow-left-long me-2"></i>Return to Shipping</a></div>
+                              <div ><button class="continue button border-0" type="submit">Continue</button></div>
+                            </div> -->
+                          </form>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="coupon-form">
+                      <div class=" d-flex justify-content-center">
+                        <div class="coupon-form-wrap p-3 mb-4 rounded">
+                          <div class="accordion p-1" id="coupon-data">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#coupon-info" aria-expanded="false" aria-controls="coupon-info">
+                                  <i class="fa-regular fa-pen-to-square me-3"></i>Have a coupon?
+                                </button>
+                              </h2>
+                              <div id="coupon-info" class="accordion-collapse collapse" data-bs-parent="#coupon-data">
+                                <div class="accordion-body">
+                                  <form>
+                                    <div class="mt-3 row ">
+                                        <div class="col">
+                                          <label for="coupon" class="form-label">Please apply it below.</label>
+                                          <input type="text" class="form-control" id="coupon" placeholder="Enter coupon code" aria-describedby="coupon" required>
+                                        </div>
+                                    </div>
+                
+                                    <div class="cart-action d-flex justify-content-center mt-5 mb-4">
+                                      <button class="continue button px-5 border-0" type="submit">Apply</button>
+                                    </div>
+                                    
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="order-sum rounded">
+                      <div class="order-tbl-wrap p-2">
+                        <div class="row table-layout rounded pt-2">
+                            <div class="col">
+                                <h5 class=" mt-2 pb-2 fs-6 ">Order Summary</h5>
+                                <table class="table table-borderless">
+                                    <thead class="thead">
+                                      <tr>
+                                        <th scope="col" class="ps-3" >SN</th>
+                                        <th scope="col">Product</th>
+                                        <!-- <th class="text-end pe-4" scope="col">Price</th> -->
+                                        <!-- <th class="text-center" scope="col">Quantity</th> -->
+                                        <th class="text-end " scope="col">Price</th>
+                                        
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row" class="ps-3 border-top">1</th>
+                                        <td class="cart-item-name border-top">
+                                            <div class="d-flex">
+                                                <!-- <img src="image/products/product-1.jpg" class="img-fluid rounded me-3" width="60px" alt=""> -->
+                                                <p>Exclusive Women Shirt</p>
+                                            </div>
+                                        </td>
+                                        <!-- <td class="text-end"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>1200.00</td> -->
+                                        <!-- <td class="text-center">1</td> -->
+                                        <td class="text-end border-top"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>1200.00</td>
+                                        
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" class="ps-3 border-top">2</th>
+                                        <td class="cart-item-name border-top">
+                                            <div class="d-flex">
+                                                <!-- <img src="image/products/product-1.jpg" class="img-fluid rounded me-3" width="60px" alt=""> -->
+                                                <p>Exclusive Women Shirt</p>
+                                            </div>
+                                        </td>
+                                        <!-- <td class="text-end"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>1200.00</td> -->
+                                        <!-- <td class="text-center">1</td> -->
+                                        <td class="text-end border-top"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>1200.00</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" class="ps-3 border-top">3</th>
+                                        <td class="cart-item-name border-top">
+                                            <div class="d-flex">
+                                                <!-- <img src="image/products/product-1.jpg" class="img-fluid rounded me-3" width="60px" alt=""> -->
+                                                <p>Exclusive Women Shirt</p>
+                                            </div>
+                                        </td>
+                                        <!-- <td class="text-end"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>1200.00</td> -->
+                                        <!-- <td class="text-center">1</td> -->
+                                        <td class="text-end border-top"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>1200.00</td>
+                                      </tr>
+                                      <tr class="row-total">
+                                        <td colspan="2" class="text-end  border-top">Subtotal</td>
+                                        <td class="text-end border-top"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>3600.00</td>
+                                      </tr>
+                                      <tr class="row-total">
+                                        <td colspan="2" class="text-end  ">Shipping</td><td class="text-end "><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>100.00</td>
+                                      </tr>
+                                      <tr class="row-total">
+                                        <td colspan="2" class="text-end  ">Tax</td><td class="text-end "><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>00.00</td>
+                                      </tr>
+                                      <tr class="row-total">
+                                        <td colspan="2" class="text-end  ">Discount</td><td class="text-end "><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>00.00</td>
+                                      </tr>
+                                      <tr class="row-total">
+                                        <td colspan="2" class="text-end border-top total">Gross Total</td>
+                                        <td class="text-end border-top total"><i class="fa-solid fa-bangladeshi-taka-sign me-1"></i>3700.00</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+           
+                    </div>
+                    </div>
+
+                    <div class="cart-action d-flex justify-content-between mt-4 mb-3">
+                      <div class="return-shop"><a href="shipping.html"><i class="fa-solid fa-arrow-left-long me-2"></i>Return to Shipping</a></div>
+                      <div ><a href="orderConfirm.html"><button class="continue button border-0" type="submit">Payment</button></a></div>
+                   </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--payment end-->
+
+    <!--footer start-->
+    <section id="footer">
+      <div class="container">
+        <div class="footer-wrapping ">
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
+
+                <div class="boxiew col">
+                    <div class="logo">
+                      <img src="image/logo-light.png" alt="Boxiew logo">
+                    </div>
+        
+                    <div class="banking-info">
+                      
+                      <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                      <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                      <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div>
+                      <!-- <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div> -->
+                      <!-- <div><a href="#"><i class="pt-1 fa-sharp fa-solid fa-location-dot"></i>Feroza Tower, 8th Floor, DIT Road, Malibagh Chowdhurypara, Dhaka.</a> </div> -->
+                      
+                    </div>
+                </div>
+        
+                <div class="suppliers-info col">
+                    <div><h5>Suppliers Info</h5></div>
+                    <div class="info-link">
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div> -->
+                    </div>
+                </div>
+        
+                <div class="buyers-info col">
+                    <div><h5>Buyers Info</h5></div>
+                    <div class="info-link">
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div>
+                      <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div> -->
+                    </div>
+                </div>
+        
+                <div class="boxiew-link col">
+                    <div><h5>Quick Links</h5></div>
+                    <div class="info-link">
+                      <div><a href="affiliate.html"><i class="fa-solid fa-arrow-right-long"></i>Carier</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>About Us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Privacy Policy</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Terms & Conditions</a></div>
+                    </div>
+        
+                    <div class="follow-us ">
+                      <div><h5>Follow Us</h5></div>
+                      <div class="social-link">
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 Boxiew Ltd || All right reserved</small></div>
+      </div>
+
+    </section>
+    <!--footer end-->
+  </main>
+  <!--end main-->
+
+
+    <!--custom js link-->
+    <!-- <script src="js/main.js"></script> -->
+
+    <!--Bootstrap cdn link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+    
+    <!--slick js link-->
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+      
+
+    <script src="js/jquery_3.7.0_jquery.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script> -->
+
+
+      <script>
+        // function showPayNum(){
+        // document.getElementsByClassName("pay-rv-num").style.display = "initial";
+        // }
+
+        function showPayNum(){
+    document.getElementById("pay-rv-num").style.display = "initial";
+    }
+
+    // function closeFilter(){
+    // document.getElementById("filter-right").style.display = "none";
+    // }
+  
+      </script>
+    
+    
+</body>
+</html>

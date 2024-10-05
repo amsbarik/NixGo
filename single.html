@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- custom css link-->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!--font-awesome lik-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!--slick css link-->
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+
+    <title>Single Product View | Boxiew</title>
+</head>
+<body>
+    <!--Main Navigation-->
+  <header>
+    <!-- Navbar top start-->
+    <nav class="navbar bg-body-tertiary navbar-expand-md shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a>
+        <button  class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- <div class="search ">
+              <form action="" role="search">
+                <div class="input-group ">
+                  <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
+                  <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+              </form>
+            </div> -->
+            <ul class="navbar-nav  ms-auto ">
+              <li class="nav-item mx-auto"><a href="listing.html" class="nav-link"> Listing</a></li>
+              <li class="nav-item mx-auto"><a href="shopping.html" class="nav-link">Shopping</a></li>
+              <li class="nav-item mx-auto"><a href="wishlist.html" class="nav-link">Wishlist</a></li>
+              <li class="nav-item mx-auto"><a href="myCart.html" class="nav-link">Cart</a></li>
+              <li class="nav-item  mx-auto" ><a href="userProfile.html"  class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket pe-2"></i>Sign In</a></li>
+              <li class="nav-item  mx-auto"><div class="add-listing button-outline rounded-pill p-0"><a href="#" class="nav-link px-4">Add Listing<i class="fa-solid fa-plus ms-2 border rounded-circle "></i></a></div></li>
+        
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar top end-->
+
+    <!-- nav bottom start  -->
+    <nav id="nav-bottom" class="fixed-bottom nav-bottom">
+      
+      <div class="container">
+        
+        <div class=" " >
+          <ul class="d-flex justify-content-between" >
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm " aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm active" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav bottom end  -->
+
+   
+  </header>
+  <!--Main Navigation-->
+
+   <!--start main-->
+  <main> 
+    <!--single product start-->
+    <section id="single-product">
+        <div class="container">
+            <div class="single-p-wrapping">
+                 <div class="row pt-3 product-url">
+                    <div class="col ms-2 pb-3 d-flex">
+                        <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                              <li class="breadcrumb-item"><a href="shopping.html">Shopping</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">exclusive-full-sleep-girls-shirt</li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                 </div>
+
+                 <div class="row single-product row-cols-1 row-cols-md-2  gy-4">
+                    <div class="image-view col">
+                        <div class="row pb-md-1">
+                            <div class="col">
+                                <img id="product-img" src="image/products/single-1.jpg" width="100%" class="rounded" alt="...">
+                            </div>
+                        </div>
+                        <div class="row pt-3 g-3  row-cols-5">
+                            <div class="col "><img class="img-thum rounded img-fluid" src="image/products/single-1.jpg"  alt="..."></div>
+                            <div class="col "><img class="img-thum rounded img-fluid" src="image/products/img-thum-1.jpg"  alt="..."></div>
+                            <div class="col "><img class="img-thum rounded img-fluid" src="image/products/img-thum-2.jpg"  alt="..."></div>
+                            <div class="col "><img class="img-thum rounded img-fluid" src="image/products/img-thum-3.jpg"  alt="..."></div>
+                            <div class="col "><img class="img-thum rounded img-fluid" src="image/products/img-thum-4.jpg"  alt="..."></div>
+                        </div>
+                    </div>
+
+                    <div class="product-supplier-info col">
+                        <div class="row product-info">
+                            <div class="col">
+                                <div class="row product-title">
+                                    <div class="col"><h4>Exclusive Full Sleep Girl’s Shirt</h4></div>
+                                </div>
+        
+                                <div class="row rangking row-cols-auto pt-2 pb-2">
+                                    <div class="col pe-5"><small><i class="fa-regular fa-heart likes"></i>Like 57</small></div>
+                                    <div class="col d-flex justify-content-start">
+                                        <small class="reviews"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></small><small>&nbsp 7k Reviews</small> 
+                                    </div>
+                                </div>
+        
+                                <div class="row price row-cols-auto pt-3 pt-md-4">
+                                    <div class="col d-flex mt-lg-2 pe-5"><h5><i class="fa-solid fa-bangladeshi-taka-sign pe-2 "></i>2790</h5></div>
+                                    <div class="col shop-now ps-5"><a href="#">Shop Now<i class="fa-solid fa-arrow-right-from-bracket ps-2"></i></a></div>
+                                </div>
+
+                                <div class="row row-cols-2 row-cols-xl-1 gy-4 mt-1 mt-lg-3">
+                                  <div class="col">
+                                    <form action="">
+                                      <div class="product-color">
+                                        <h5>Color</h5>
+                                        <div class="color-layout d-flex mt-1 mt-lg-3">
+                                          <div class="form-check">
+                                            <input class="form-check-input color-input" name="color" type="checkbox" value="black" id="black">
+                                            <label class="form-check-label black" for="black"></label>
+                                          </div>
+                                          
+                                          <div class="form-check">
+                                            <input class="form-check-input color-input" name="color" type="checkbox" value="red" id="red">
+                                            <label class="form-check-label red" for="red"></label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input color-input" name="color" type="checkbox" value="green" id="green">
+                                            <label class="form-check-label green" for="green"></label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input color-input" name="color" type="checkbox" value="blue" id="blue">
+                                            <label class="form-check-label blue" for="blue"></label>
+                                          </div>
+
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+
+                                  <div class="col">
+                                    <form action="">
+                                      <div class="product-size">
+                                        <h5>Size</h5>
+                                        <div class="size-layout d-flex mt-1 mt-lg-3">
+                                          <div class="form-check">
+                                            <input class="form-check-input" name="size" type="checkbox" value="S" id="s">
+                                            <label class="form-check-label size" for="s">S</label>
+                                          </div>
+                                          <div class="form-check ">
+                                            <input class="form-check-input" name="size" type="checkbox" value="M" id="m">
+                                            <label class="form-check-label size" for="m">M</label>
+                                          </div>
+                                          <div class="form-check ">
+                                            <input class="form-check-input" name="size" type="checkbox" value="L" id="l">
+                                            <label class="form-check-label size" for="l">L</label>
+                                          </div>
+                                          <div class="form-check ">
+                                            <input class="form-check-input" name="size" type="checkbox" value="XL" id="xl">
+                                            <label class="form-check-label size "  for="xl">XL</label>
+                                          </div>
+
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+
+                                </div>
+                                
+                                <div class="row qty mt-3 mt-lg-4">
+                                    <div class="col">
+                                        <form action="">
+                                          <h5 class="">Quantity</h5>
+                                          <div class="product-qty  mt-lg-3">
+                                            <span class="minus ">-</span>
+                                            <span class="num px-md-5">1</span>
+                                            <span class="plus">+</span>
+                                          </div>
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+        
+                                <div class="row row-cols-auto ps-2 chechout pb-2">
+                                    <div class="col add-cart rounded-pill me-4 me-md-5 ms-1">Add to Cart</div>
+                                    <div class="col button rounded-pill">Order Now</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <hr class="mt-4 mb-4"> -->
+
+                    </div>
+                        
+                 </div>
+
+                 <hr>
+                 <div class="row suppliers-info mt-3">
+                  <div class="col">
+                      <div class="row supplier-title">
+                          <div class="col ">
+                            <h5>Yellow Shopping Center</h5>
+                          </div>
+                        </div>
+
+                        <div class="row location">
+                            <div class="col pt-2 pb-1"><small><i class="fa-solid fa-location-dot pe-2"></i>71 Baily Road, Dhaka, Bangladesh.</small></div>
+                        </div>
+
+                        <div class="row row-cols-auto pt-2 pb-2">
+                            <div class="col pe-5"><small><i class="fa-regular fa-heart likes "></i> Like 57</small></div>
+                            <div class="col d-flex justify-content-start">
+                                <small class="reviews"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></small><small>&nbsp 7k Reviews</small> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-7">
+                      <div class="button-outline border-0 rounded-pill mt-2" style="max-width: 11.5rem;"><i class="fa-solid fa-eye pe-2"></i>All Products</div>
+                      <!-- <p class="text-style overflow-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem animi necessitatibus, sint voluptatibus a facilis?</p> -->
+                      <div class="supplier-shop d-lg-flex  justify-content-sm-between ">
+                        <div class=" "><small><i class="fa-solid fa-id-badge pe-2  me-1"></i>BOX81782XD2023</small></div>
+                        <div class=" "><small><i class="fa-solid fa-certificate pe-2"></i>Verified Supplier</small></div>
+                        <div class=" "><small><i class="fa-solid fa-basket-shopping pe-2"></i>Retail & Wholeseller</small></div>
+                    </div>
+                    </div>
+                </div>
+
+                 <hr class="">
+
+                 <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Product's Detail</button>
+                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Reviews</button>
+                      <!-- <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button> -->
+                      <!-- <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false" disabled>Disabled</button> -->
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade mt-3 mt-md-4 show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                        <h6>Export Quality & 100% Cotton</h6>
+                        <p>labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. <br>Risus commodo viverra maecenas accumsan lacus vel facilisis. 
+                          <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing </li>
+                            <li>elipendisse ultrices gravida. Risus commodo viverra </li>
+                            <li>maecenas accumsan lacus vel facilisis. </li>
+                        </ul>
+                        </p>
+                        
+                        <small><span class="pe-2 text-danger">Note:</span> It's very modern & exclusive!</small>
+
+                        <div class="see-more pt-4"><small>See more <i class="fa-solid fa-arrow-right-long ps-2"></i></small></div>
+
+                    </div>
+                    <div class="tab-pane fade mt-3 mt-md-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                        <h6>Export Quality & 100% Cotton</h6>
+                        <p>labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. <br>Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing </li>
+                            <li>elipendisse ultrices gravida. Risus commodo viverra </li>
+                            <li>maecenas accumsan lacus vel facilisis. </li>
+                        </ul>
+                        <small><span class="pe-2 text-danger">Note:</span> It's very modern & exclusive!</small>
+
+                        <div class="see-more pt-4"><small>See more <i class="fa-solid fa-arrow-right-long ps-2"></i></small></div>
+
+                    </div>
+                    <!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div> -->
+                    <!-- <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div> -->
+                  </div>
+
+            </div>
+        </div>
+    </section>
+    <!--single product end-->
+
+    <!--simillar products start-->
+    <section id="simillar-products">
+        <div class="container">
+            <div class="products-wrapping">
+                <div class="products-heading pb-4 ">
+                    <div class="heading-title d-flex pt-4 pt-xl-5">
+                        <div class="pe-4"><h3>Simillar Products</h3></div>
+                        <div class="heading-u-line mt-2 mt-lg-3"></div>
+                    </div>
+                    
+                    <div class="heading-sub-title mt-2 mt-lg-3 d-flex justify-content-between">
+                        <div class="sub-title"><h6>Buy from Top Rated & Verified Supplers in the World</h6></div>
+                        <div class="prev-next-btn">
+                            <i class="fa-solid fa-circle-chevron-left pe-2"></i>
+                            <i class="fa-solid fa-circle-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="see-more d-flex justify-content-end"><small>See more</small></div> -->
+                <div class="product-list product-slide ">
+                    
+    
+                  <div class="product-card  mb-1">
+                    <div class="card border-0 box-shadow">
+                      <img src="image/products/product-1.jpg" class="card-img-top" alt="...">
+                      <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                      <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title title-style">Women Shirt</h5>
+                        
+                        <div class="rangking d-sm-flex  justify-content-between">
+                          <div class="likes"> 
+                            <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                          </div> 
+                          <div class="reviews">
+                            <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                          </div> 
+                        </div>
+                        <hr class="my-2">
+                        <div class="order-now d-flex  justify-content-between" >
+                          <div class="price d-flex align-items-center">
+                            <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                          </div>
+                          <div>
+                            <a href="#" class=" button  px-md-3">Order Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-card  ">
+                    <div class="card border-0 box-shadow">
+                      <img src="image/products/product-2.jpg" class="card-img-top" alt="...">
+                      <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                      <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title title-style">Women Shirt</h5>
+                        
+                        <div class="rangking d-sm-flex  justify-content-between">
+                          <div class="likes"> 
+                            <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                          </div> 
+                          <div class="reviews">
+                            <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                          </div> 
+                        </div>
+                        <hr class="my-2">
+                        <div class="order-now d-flex  justify-content-between" >
+                          <div class="price d-flex align-items-center">
+                            <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                          </div>
+                          <div>
+                            <a href="#" class=" button  px-md-3">Order Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-card  ">
+                    <div class="card border-0 box-shadow">
+                      <img src="image/products/product-3.jpg" class="card-img-top" alt="...">
+                      <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                      <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title title-style">Women Shirt</h5>
+                        
+                        <div class="rangking d-sm-flex  justify-content-between">
+                          <div class="likes"> 
+                            <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                          </div> 
+                          <div class="reviews">
+                            <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                          </div> 
+                        </div>
+                        <hr class="my-2">
+                        <div class="order-now d-flex  justify-content-between" >
+                          <div class="price d-flex align-items-center">
+                            <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                          </div>
+                          <div>
+                            <a href="#" class=" button  px-md-3">Order Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-card  ">
+                    <div class="card border-0 box-shadow">
+                      <img src="image/products/product-4.jpg" class="card-img-top" alt="...">
+                      <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                      <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title title-style">Women Shirt</h5>
+                        
+                        <div class="rangking d-sm-flex  justify-content-between">
+                          <div class="likes"> 
+                            <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                          </div> 
+                          <div class="reviews">
+                            <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                          </div> 
+                        </div>
+                        <hr class="my-2">
+                        <div class="order-now d-flex  justify-content-between" >
+                          <div class="price d-flex align-items-center">
+                            <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                          </div>
+                          <div>
+                            <a href="#" class=" button  px-md-3">Order Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-card  ">
+                    <div class="card border-0 box-shadow">
+                      <img src="image/products/product-4.jpg" class="card-img-top" alt="...">
+                      <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                      <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title title-style">Women Shirt</h5>
+                        
+                        <div class="rangking d-sm-flex  justify-content-between">
+                          <div class="likes"> 
+                            <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                          </div> 
+                          <div class="reviews">
+                            <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                          </div> 
+                        </div>
+                        <hr class="my-2">
+                        <div class="order-now d-flex  justify-content-between" >
+                          <div class="price d-flex align-items-center">
+                            <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                          </div>
+                          <div>
+                            <a href="#" class=" button  px-md-3">Order Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-card  ">
+                    <div class="card border-0 box-shadow">
+                      <img src="image/products/product-4.jpg" class="card-img-top" alt="...">
+                      <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                      <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title title-style">Women Shirt</h5>
+                        
+                        <div class="rangking d-sm-flex  justify-content-between">
+                          <div class="likes"> 
+                            <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                          </div> 
+                          <div class="reviews">
+                            <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                          </div> 
+                        </div>
+                        <hr class="my-2">
+                        <div class="order-now d-flex  justify-content-between" >
+                          <div class="price d-flex align-items-center">
+                            <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                          </div>
+                          <div>
+                            <a href="#" class=" button  px-md-3">Order Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!--simillar products end-->
+
+    <!--recomended products start-->
+    <section id="recomended-products">
+        <div class="container">
+            <div class="products-wrapping">
+                <div class="products-heading pb-4 ">
+                    <div class="heading-title  d-flex pt-4 pt-xl-5">
+                        <div class="pe-4"><h3>Recomended Products</h3></div>
+                        <div class="heading-u-line mt-2 mt-lg-3"></div>
+                    </div>
+                    
+                    <div class="heading-sub-title d-flex mt-2 mt-lg-3 justify-content-between">
+                        <div class="sub-title"><h6 >Buy from Top Rated & Verified Supplers in the World</h6></div>
+                        <div class="prev-next-btn">
+                            <i class="fa-solid fa-circle-chevron-left pe-2"></i>
+                            <i class="fa-solid fa-circle-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="see-more d-flex justify-content-end"><small>See more</small></div> -->
+                <div class="product-list product-slide ">
+                    
+    
+                      <div class="product-card  mb-1">
+                        <div class="card border-0 box-shadow">
+                          <img src="image/products/product-1.jpg" class="card-img-top" alt="...">
+                          <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                          <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                          <div class="card-body">
+                            <h5 class="card-title title-style">Women Shirt</h5>
+                            
+                            <div class="rangking d-sm-flex  justify-content-between">
+                              <div class="likes"> 
+                                <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                              </div> 
+                              <div class="reviews">
+                                <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                              </div> 
+                            </div>
+                            <hr class="my-2">
+                            <div class="order-now d-flex  justify-content-between" >
+                              <div class="price d-flex align-items-center">
+                                <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                              </div>
+                              <div>
+                                <a href="#" class=" button  px-md-3">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="product-card  ">
+                        <div class="card border-0 box-shadow">
+                          <img src="image/products/product-2.jpg" class="card-img-top" alt="...">
+                          <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                          <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                          <div class="card-body">
+                            <h5 class="card-title title-style">Women Shirt</h5>
+                            
+                            <div class="rangking d-sm-flex  justify-content-between">
+                              <div class="likes"> 
+                                <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                              </div> 
+                              <div class="reviews">
+                                <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                              </div> 
+                            </div>
+                            <hr class="my-2">
+                            <div class="order-now d-flex  justify-content-between" >
+                              <div class="price d-flex align-items-center">
+                                <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                              </div>
+                              <div>
+                                <a href="#" class=" button  px-md-3">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="product-card  ">
+                        <div class="card border-0 box-shadow">
+                          <img src="image/products/product-3.jpg" class="card-img-top" alt="...">
+                          <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                          <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                          <div class="card-body">
+                            <h5 class="card-title title-style">Women Shirt</h5>
+                            
+                            <div class="rangking d-sm-flex  justify-content-between">
+                              <div class="likes"> 
+                                <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                              </div> 
+                              <div class="reviews">
+                                <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                              </div> 
+                            </div>
+                            <hr class="my-2">
+                            <div class="order-now d-flex  justify-content-between" >
+                              <div class="price d-flex align-items-center">
+                                <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                              </div>
+                              <div>
+                                <a href="#" class=" button  px-md-3">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="product-card  ">
+                        <div class="card border-0 box-shadow">
+                          <img src="image/products/product-4.jpg" class="card-img-top" alt="...">
+                          <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                          <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                          <div class="card-body">
+                            <h5 class="card-title title-style">Women Shirt</h5>
+                            
+                            <div class="rangking d-sm-flex  justify-content-between">
+                              <div class="likes"> 
+                                <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                              </div> 
+                              <div class="reviews">
+                                <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                              </div> 
+                            </div>
+                            <hr class="my-2">
+                            <div class="order-now d-flex  justify-content-between" >
+                              <div class="price d-flex align-items-center">
+                                <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                              </div>
+                              <div>
+                                <a href="#" class=" button  px-md-3">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-card  ">
+                        <div class="card border-0 box-shadow">
+                          <img src="image/products/product-4.jpg" class="card-img-top" alt="...">
+                          <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                          <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                          <div class="card-body">
+                            <h5 class="card-title title-style">Women Shirt</h5>
+                            
+                            <div class="rangking d-sm-flex  justify-content-between">
+                              <div class="likes"> 
+                                <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                              </div> 
+                              <div class="reviews">
+                                <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                              </div> 
+                            </div>
+                            <hr class="my-2">
+                            <div class="order-now d-flex  justify-content-between" >
+                              <div class="price d-flex align-items-center">
+                                <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                              </div>
+                              <div>
+                                <a href="#" class=" button  px-md-3">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="product-card  ">
+                        <div class="card border-0 box-shadow">
+                          <img src="image/products/product-4.jpg" class="card-img-top" alt="...">
+                          <!-- <div class=" card-img-overlay d-flex justify-content-center align-items-center"><i class="fa-regular fa-heart"></i></div> -->
+                          <div class="position-absolute product-fav mt-lg-1 me-lg-1 mt-xxl-2 me-xxl-2 d-flex rounded-1 p-1"><i class="fa-regular fa-heart"></i></div>
+                          <div class="card-body">
+                            <h5 class="card-title title-style">Women Shirt</h5>
+                            
+                            <div class="rangking d-sm-flex  justify-content-between">
+                              <div class="likes"> 
+                                <small><i class="fa-regular fa-heart"></i> Like 57</small>
+                              </div> 
+                              <div class="reviews">
+                                <small ><i class="fa-regular fa-star"></i>&nbsp 7k Reviews</small>
+                              </div> 
+                            </div>
+                            <hr class="my-2">
+                            <div class="order-now d-flex  justify-content-between" >
+                              <div class="price d-flex align-items-center">
+                                <div><p><i class="fa-solid fa-bangladeshi-taka-sign"></i> 2790</p></div>
+                              </div>
+                              <div>
+                                <a href="#" class=" button  px-md-3">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!--recomended products end-->
+
+    <!--footer start-->
+    <section id="footer">
+      <div class="container">
+        <div class="footer-wrapping ">
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
+
+                <div class="boxiew col">
+                    <div class="logo">
+                      <img src="image/logo-light.png" alt="Boxiew logo">
+                    </div>
+        
+                    <div class="contact-info">
+                      
+                      <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                      <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                      <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div>
+                      <!-- <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div> -->
+                      <!-- <div><a href="#"><i class="pt-1 fa-sharp fa-solid fa-location-dot"></i>Feroza Tower, 8th Floor, DIT Road, Malibagh Chowdhurypara, Dhaka.</a> </div> -->
+                      
+                    </div>
+                </div>
+        
+                <div class="suppliers-info col">
+                    <div><h5>Suppliers Info</h5></div>
+                    <div class="info-link">
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                      <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div> -->
+                    </div>
+                </div>
+        
+                <div class="buyers-info col">
+                    <div><h5>Buyers Info</h5></div>
+                    <div class="info-link">
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div>
+                      <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div> -->
+                    </div>
+                </div>
+        
+                <div class="boxiew-link col">
+                    <div><h5>Quick Links</h5></div>
+                    <div class="info-link">
+                      <div><a href="affiliate.html"><i class="fa-solid fa-arrow-right-long"></i>Carier</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>About Us</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Privacy Policy</a></div>
+                      <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Terms & Conditions</a></div>
+                    </div>
+        
+                    <div class="follow-us ">
+                      <div><h5>Follow Us</h5></div>
+                      <div class="social-link">
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 Boxiew Ltd || All right reserved</small></div>
+      </div>
+
+    </section>
+    <!--footer end-->
+
+  </main>
+  <!--end main-->
+
+
+
+
+    <!--custom js link-->
+    <script src="js/main.js"></script>
+
+    <!--Bootstrap cdn link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+    
+    <!--slick js link-->
+    <script src="js/jquery_3.7.0_jquery.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+
+
+    <script>
+      $('.product-slide').slick({
+        infinite: true,
+    slidesToShow: 4,
+    centerPadding: '20px',
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        centerPadding: '20px',
+        infinite: true,
+        dots: true
+      }
+    },
+    // {
+    //   breakpoint: 600,
+    //   settings: {
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1
+    //   }
+    // },
+    // {
+    //   breakpoint: 576,
+    //   settings: {
+    //     slidesToShow: 2,
+    //     slidesToScroll: 1
+    //   }
+    // },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+    ]
+      });
+    </script>
+
+</body>
+</html>

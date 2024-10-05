@@ -1,0 +1,2766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content=Hotel>
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="">
+    <meta property="og:image" content="">
+
+    <!-- bootstrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- custom css link-->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!--font-awesome lik-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!--slick css link-->
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+
+
+    <title>Hotel Profile</title>
+
+    <!-- root css  -->
+    <style>
+        :root {
+            --primary-color: #7e3ff2;
+            --primary-color-light: #efe5fd;
+            --secondary-color: #FDDB55;
+            --secondary-color-light: #ffe478;
+            --title-color: #1d1d1d;
+            --text-color: #757575;
+            --bg-color: #f6f7fa;
+            --bg-color-deep: #e6e5e5;
+            --light-color: white;
+
+            --box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+            }
+
+            input:focus{
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            a {
+            text-decoration: none;
+            }
+            ul{
+                list-style: none;
+                padding-left: 0px;
+            }
+    </style>
+
+    <!-- profile top css  -->
+    <style>
+        .hotel-profile .profile-wrap .hotel-profile-top {
+            background: var(--bg-color);
+        }
+        /* profile top start */
+        .hotel-profile .profile-wrap .hotel-profile-top .hotel-profile-imgs .view-img {
+            width: 100%;
+            height: 342px;
+        }
+        .hotel-profile .profile-wrap .hotel-profile-top .hotel-profile-imgs .thum-img {
+            width: 100%;
+            height: 100%;
+        }
+        .hotel-list .list-wrap .filter-by:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        .hotel-profile-info {
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .hotel-profile-info .thum-img-view {
+            position: absolute;
+            object-fit:cover;
+            bottom: 43px;
+            left: 0;
+            z-index: 1000;
+        }
+        .hotel-profile-info .card-title{
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--title-color);
+            transition: .3s;
+        }
+        .hotel-profile-info .card-title:hover{
+            text-decoration: underline;
+        }
+        .hotel-profile-info .property-i{
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+        .hotel-profile-info .property-partner{
+            color: var(--title-color);
+            position: absolute;
+            width: 290px;
+            height: 94px;
+            background: var(--secondary-color-light);
+            padding: 10px;
+            font-size: 12px;
+            font-weight: 300;
+            top: -109px;
+            right: -180px;
+            border: 1px solid #fed63b;
+            display: none;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        }
+        .hotel-profile-info .property-i:hover + .property-partner{
+            display: inline;
+        }
+        .hotel-profile-info .property-partner .down-arrow{
+            width: 0;
+            height: 0;
+            border-left:16px solid transparent;
+            border-right: 16px solid transparent;
+            bottom: -14px;
+            left: 86px;
+            border-top: 16px solid var(--secondary-color-light);
+            position: absolute;
+        }
+        .hotel-profile-info .reviews {
+            color: var(--title-color);
+            font-weight: 500;
+        }
+        .hotel-profile-info .reviews small{
+            font-weight: 400;
+            margin-left: 10px
+        }
+        .hotel-profile-info .reviews .btn{
+            font-weight: 500 !important;
+            background: #9965f4 ;
+            color: var(--light-color);
+            border-radius: 16px 16px 16px 0px;
+            padding:  0px 12px !important;
+            margin-right: 4px;
+        }
+        .hotel-profile-info .location{
+            font-weight: 400 ;
+            color: var(--title-color);
+        }
+        .hotel-profile-info .location .map:hover{
+            /* text-decoration: underline; */
+            color: var(--primary-color);
+        }
+        .hotel-profile-info .location i{
+            color: var(--primary-color);
+        }
+        .hotel-profile-info .location .location-frame{
+
+        }
+        .hotel-profile-info .location iframe{
+            width: 960px;
+            height: 680px;
+        }
+        .hotel-profile-info .room-qty{
+            color: var(--primary-color);
+            margin-top: 30px;
+            font-weight: 500;
+        }
+        .hotel-profile-info .room-qty:hover{
+            text-decoration: underline;
+        }
+        .hotel-profile-info .facilities i{
+            color: var(--primary-color);
+        }
+        .hotel-profile-info .facilities {
+            color:  var(--text-color);
+            font-weight: 300;
+            font-size: 13px;
+            margin-top: 14px;
+        }
+        .hotel-profile-info .facilities h5 {
+            color:  var(--title-color);
+            text-decoration: underline;
+        }
+        .hotel-profile-info .star-rate {
+            color:  var(--primary-color);
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+            padding: 4px 10px;
+            font-size: 14px;
+        }
+        .hotel-profile-info .price-info-card {
+            color: var(--title-color);
+            font-weight: 300;
+            font-size: 13px;
+            width: 360px;
+            /* height: 182px; */
+            background: var(--secondary-color-light);
+            border: 1px solid #fed63b;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+            display:none;
+            transition: .4s;
+            top: 26px;
+            left: -100px;
+            z-index: 1000;
+        }
+        .hotel-profile-info .price-info:hover .price-info-card {
+            display: block;
+        }
+        .hotel-profile-info .reserve-info {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            font-size: 16px ;
+        }
+        .hotel-profile-info .reserve-info i {
+            color: var(--primary-color) !important;
+
+        }
+        .hotel-profile-info .reserve-info .price-match {
+            color: var(--title-color);
+            font-size: 15px;
+        }
+        .hotel-profile-info .price-match-info{
+            color: var(--title-color);
+            width: 290px;
+            height: 77px;
+            background: var(--secondary-color-light);
+            padding: 10px;
+            font-size: 12px;
+            font-weight: 300;
+            top: -88px;
+            right: -36px;
+            border: 1px solid #fed63b;
+            display: none;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        }
+        .hotel-profile-info .price-match:hover  .price-match-info{
+            display: inline;
+        }
+        .hotel-profile-info .price-match-info .down-arrow{
+            width: 0;
+            height: 0;
+            border-left:16px solid transparent;
+            border-right: 16px solid transparent;
+            bottom: -12px;
+            left: 98px;
+            border-top: 16px solid var(--secondary-color-light);
+            position: absolute;
+        }
+        .hotel-profile-info .reserve-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--light-color);
+
+        }
+
+
+
+    </style>
+
+    <!-- about-popup  css  -->
+    <style>
+        .about-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 870px;
+        /* height: 524px; */
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .about-popup.visible {
+        display: block;
+        }
+        /* Style for dimming background when about-popup is visible */
+        .dimmed-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        }
+        .dimmed-background.visible {
+        display: block;
+        }
+
+        .about-popup .about-text{
+            height: 364px;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        .about-popup .about-text::-webkit-scrollbar{
+            width: 4px;
+        }
+        .about-popup .about-text::-webkit-scrollbar-thumb{
+            background: #75757530;
+        }
+        .about-popup .about-text::-webkit-scrollbar-track{
+            background: #75757520;
+        }
+        .about-popup span{
+            color: var(--primary-color);
+            margin-left: 4px;
+        }
+        .about-popup button{
+            color: var(--title-color);
+            background: none;
+            font-size: 22px;
+        }
+    </style>
+
+    <!-- profile tab's room css  -->
+    <style>
+        .btn{
+            background: var(--primary-color);
+            color: var(--light-color);
+            transition: .3s;
+        }
+        .btn:focus{
+            border: none;
+        }
+        .btn:hover{
+            background: #6002EE;
+            color: var(--light-color);
+        }
+        .profile-tabs .nav .nav-item .active{
+            border-bottom: 2px solid var(--primary-color);
+            background: none;
+            /* color: var(--primary-color) !important; */
+            border-radius: 0 !important;
+
+        }
+        .profile-tabs .nav-item .nav-link {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            color: var(--title-color);
+            font-weight: 400;
+            /* font-size: 16px !important; */
+        }
+
+        .profile-tabs .room-body{
+            cursor: pointer;
+        }
+        .profile-tabs .room-body .room-details .view-img {
+            width: 100%;
+            height: 199px;
+        }
+        .profile-tabs .room-body .room-details .thum-img {
+            width: 100%;
+            height: 100%;
+        }
+        .profile-tabs .room-body .room-title{
+            color: var(--title-color);
+            font-size: 22px;
+            font-weight: 600;
+            transition: .3s;
+        }
+        .profile-tabs .room-body .room-title:hover{
+            text-decoration: underline;
+        }
+        .profile-tabs .room-body .room-sub-title{
+            color: var(--title-color);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .profile-tabs .room-body .room-sub-title i{
+            color: var(--primary-color);
+        }
+        .profile-tabs .room-body .room-details ul li{
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        .profile-tabs .room-body .room-details ul li i{
+            color: var(--primary-color);
+        }
+        .profile-tabs .room-body .room-details .btn{
+            font-size: 14px;
+            color: var(--primary-color);
+            background: none;
+            font-weight: 500;
+        }
+        .profile-tabs .room-body .room-details .btn:hover{
+            text-decoration: underline;
+        }
+
+        /* room-prices table css  */
+        .profile-tabs .room-body .room-prices .table .room-feature li:nth-child(3){
+            color: var(--primary-color);
+        }
+        .profile-tabs .room-body .room-prices .table .room-feature li i{
+            color: var(--primary-color);
+        }
+        .profile-tabs .room-body .room-prices .table thead th{
+            background: var(--bg-color-deep) ;
+            font-weight: 500;
+            color: var(--title-color);
+            font-size: 16px;
+        }
+        .profile-tabs .room-body .room-prices .table tbody td{
+            background: var(--bg-color) ;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+        .profile-tabs .room-body .room-prices .table tbody td .table-title{
+            color: var(--title-color);
+            font-weight: 500;
+        }
+        .profile-tabs .room-body .room-prices .table tbody td .table-title i{
+            color: var(--text-color);
+        }
+        .profile-tabs .room-body .room-prices .table .table-row{
+            height: 178px;
+        }
+
+        .profile-tabs .room-body .room-prices .table .table-row .price-modal{
+            width: 480px;
+            background: var(--secondary-color-light);
+            border: 1px solid #fed63b;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+            top: -188px;
+            left: 0;
+            display: none;
+        }
+        .profile-tabs .room-body .room-prices .table .table-row .price-modal span{
+            color: var(--title-color);
+            font-weight: 400;
+            font-size: 13px;
+        }
+        .profile-tabs .room-body .room-prices .table .table-row .price-modal-wrap:hover .price-modal{
+            display: block;
+        }
+        .profile-tabs .room-body .room-prices .table .table-row .price-modal .down-arrow{
+            width: 0;
+            height: 0;
+            border-left:16px solid transparent;
+            border-right: 16px solid transparent;
+            bottom: -14px;
+            left: 82px;
+            border-top: 16px solid var(--secondary-color-light);
+            position: absolute;
+        }
+
+        /* room filters  */
+        .profile-tabs .room-filters{
+            background: var(--bg-color);
+            /* font-size: 14px;
+            color: var(--title-color); */
+        }
+        .profile-tabs .room-filters .filter-items{
+            background: #fff;
+            font-size: 13px;
+            color: var(--title-color);
+            border: 1px dotted var(--primary-color);
+            cursor: pointer;
+        }
+        .profile-tabs .filter-items.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+    </style>
+
+    <!-- facilities tab css  -->
+    <style>
+        .profile-tabs .facility {
+            background: var(--bg-color);
+        }
+        .profile-tabs .facility-box {
+            margin-bottom: 34px;
+        }
+        .profile-tabs .facility-box h5 i{
+            color: var(--primary-color);
+        }
+        .profile-tabs .facility-box li{
+            font-size: 14px;
+            margin-bottom: 6px;
+            text-transform: capitalize;
+        }
+        .profile-tabs .facility-box .tag{
+            padding: 1px 6px 2px 6px;
+            margin: 0px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .profile-tabs .facility-box .extra{
+            background: var(--primary-color-light);
+        }
+        .profile-tabs .facility-box .free{
+            background: #FDDB5575
+        }
+    </style>
+
+    <!-- policy tab css  -->
+    <style>
+        .profile-tabs .policy{
+            background: var(--bg-color);
+        }
+        .profile-tabs .policy p, .policy th, .policy td{
+            font-size: 14px;
+        }
+        .profile-tabs .policy p{
+            margin-bottom: 6px;
+        }
+        .profile-tabs .policy strong, .policy th{
+            font-weight: 600;
+        }
+
+        .profile-tabs .policy .pay-method img{
+            width: 90px;
+            height: 54px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+    </style>
+
+    <!-- review tab css  -->
+    <style>
+        .profile-tabs .review{
+            background: var(--bg-color);
+        }
+        .profile-tabs .review .rev-badge{
+            background: var(--primary-color);
+            padding: 4px 20px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            width: 120px;
+            height: 40px;
+            color: white;
+        }
+        .profile-tabs .review .user-reviews .rev-badge{
+            background: var(--primary-color);
+            padding: 4px 20px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            width: 80px;
+            height: 30px;
+            color: white;
+        }
+        .profile-tabs .review .review-filter .form-select, .review-filter p {
+            font-size: 14px;
+        }
+        .profile-tabs .review .review-filter .form-select:focus{
+            outline: none;
+            box-shadow: none;
+            border: 1px solid var(--primary-color);
+        }
+        .profile-tabs .review .review-filter .form-select option:hover{
+            background-color: red !important;
+        }
+        .profile-tabs .review .rev-badge span{
+            opacity: 50%;
+        }
+        .profile-tabs .review .ratting{
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .profile-tabs .review .user-reviews .user-photo{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #7e3ff280;
+        }
+        .profile-tabs .review .user-reviews .user-imgs img{
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        .profile-tabs .review .user-reviews .user-text, .user-reviews .post-date, .user-stay span{
+            font-size: 14px;
+        }
+        .profile-tabs .review i{
+            color: var(--primary-color)
+        }
+        .profile-tabs .review .pagination .active .page-link{
+            background: var(--primary-color) !important;
+            border: 1px solid var(--primary-color);
+            color: white;
+        }
+        .profile-tabs .review .pagination .page-link:focus{
+            box-shadow: none;
+        }
+        .profile-tabs .review .pagination .page-link{
+            color: var(--title-color);
+            font-size: 14px;
+        }
+
+        /* user text wrapper css  */
+        .user-txt-wrap {
+            height: 80px;
+            overflow: hidden;
+        }
+
+        .user-txt-wrap.show {
+            height: auto;
+        }
+
+        .user-text {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .usertxt-readmore {
+            position: absolute;
+            width: 100%;
+            top: 63px;
+            left: 0;
+            background: var(--bg-color);
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .usertxt-readmore::before {
+            content: attr(data-more)
+        }
+
+        .user-txt-wrap.show .usertxt-readmore {
+            position: relative;
+            top: auto;
+            display: block;
+        }
+
+        .user-txt-wrap.show .usertxt-readmore::before {
+            content: attr(data-less)
+        }
+    </style>
+
+    <!-- nearby  css  -->
+    <style>
+        .profile-tabs .nearby{
+            background: var(--bg-color);
+        }
+        .profile-tabs .nearby ul li{
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+
+    </style>
+
+    <!-- room body show more less css  -->
+    <style>
+        .room-body-wrap {
+            height: 570px;
+            background: var(--bg-color);
+            overflow: hidden;
+        }
+        .room-body-wrap.show {
+            height: auto;
+        }
+
+        .room-body {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .readmore {
+            position: absolute;
+            width: 100%;
+            font-size: 14px;
+            top: 513px;
+            left: 0;
+            padding-left: 46%;
+            padding-top: 10px;
+            padding-bottom: 11px;
+            background: var(--bg-color);
+            color: var(--primary-color);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .readmore::before {
+            content: attr(data-more)
+        }
+        .room-body-wrap.show .readmore {
+            position: relative;
+            top: auto;
+            display: block;
+        }
+        .room-body-wrap.show .readmore::before {
+            content: attr(data-less)
+        }
+    </style>
+    
+
+    <!-- room info popup css  -->
+    <style>
+        .popup-wrap{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            visibility: hidden;
+            background: #1d1d1d70;
+        }
+        .overlay{
+            visibility: visible;
+        }
+        .room-info-popup{
+            width: 680px;
+            background: var(--secondary-color-light);
+            color: var(--title-color);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            cursor: pointer;
+            border: 1px solid #fed63b;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        }
+        .room-info-popup small {
+            font-size: 13px;
+            font-weight: 300;
+        }
+        .room-info-popup span {
+            font-weight: 500;
+        }
+
+        /* room details popup css */
+        .details-popup-wrap{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            visibility: hidden;
+            background: #1d1d1d70;
+        }
+        .details-overlay{
+            visibility: visible;
+        }
+        .room-details-popup{
+            width: 1296px;
+            height: 720px;
+            background: white;
+            color: var(--title-color);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            cursor: pointer;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        }
+        .details-popup-wrap .room-imgs {
+            /* width: 600px; */
+            height: 650px;
+            overflow: auto;
+        }
+        .details-popup-wrap .room-imgs .row {
+            width: 100%;
+        }
+        .details-popup-wrap .room-imgs img {
+            width: 100%;
+            height: 272px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        .details-popup-wrap .room-txt {
+            height: 600px;
+            overflow: auto;
+        }
+
+        .details-popup-wrap .room-imgs::-webkit-scrollbar {
+            display: none;
+        }
+        .details-popup-wrap .room-txt::-webkit-scrollbar {
+            width: 4px;
+        }
+        .details-popup-wrap .room-txt::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        .details-popup-wrap .room-txt::-webkit-scrollbar-thumb {
+            background: #75757540;
+        }
+        .details-popup-wrap .room-txt::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        .details-popup-wrap .details-box {
+            width: 370px;
+            padding-left: 2px;
+        }
+        .details-popup-wrap .details-box p,
+        .details-box li, .details-box td{
+            font-size: 13px;
+        }
+        .details-popup-wrap .details-box .top i{
+            color: var(--primary-color);
+        }
+        .details-popup-wrap .details-box li{
+            margin-bottom: 5px;
+        }
+        .details-popup-wrap .selectroomBtn{
+            width: 100%;
+            border: none;
+            background: var(--primary-color);
+            transition: .3s;
+            color: white;
+            border-radius: 6px;
+            padding: 6px;
+        }
+        .details-popup-wrap .selectroomBtn:hover{
+            background: #7328ff;
+        }
+        
+    </style>
+</head>
+<body>
+  <!--Main Navigation-->
+  <header>
+    <!-- Navbar top start-->
+    <nav class="navbar bg-body-tertiary navbar-expand-md shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a>
+        <button  class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- <div class="search ">
+              <form action="" role="search">
+                <div class="input-group ">
+                  <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
+                  <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+              </form>
+            </div> -->
+            <ul class="navbar-nav  ms-auto ">
+              <li class="nav-item mx-auto"><a href="listing.html" class="nav-link"> Listing</a></li>
+              <li class="nav-item mx-auto"><a href="shopping.html" class="nav-link">Shopping</a></li>
+              <li class="nav-item mx-auto"><a href="wishlist.html" class="nav-link">Wishlist</a></li>
+              <li class="nav-item mx-auto"><a href="myCart.html" class="nav-link">Cart</a></li>
+              <li class="nav-item  mx-auto" ><a href="userProfile.html"  class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket pe-2"></i>Sign In</a></li>
+              <li class="nav-item  mx-auto"><div class="add-listing button-outline rounded-pill p-0"><a href="#" class="nav-link px-4">Add Listing<i class="fa-solid fa-plus ms-2 border rounded-circle "></i></a></div></li>
+        
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar top end-->
+
+    <!-- nav bottom start  -->
+    <nav id="nav-bottom" class="fixed-bottom nav-bottom">
+      
+      <div class="container">
+        
+        <div >
+          <ul class="d-flex justify-content-between" >
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm  active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav bottom end  -->
+
+   
+  </header>
+  <!--Main Navigation-->
+
+  <!--start main-->
+  <main> 
+
+    
+    <!-- hotel search form  -->
+    <section class="hotel-form" style="margin-top: 5rem;">
+        <div class="container ">
+            hotel form
+
+        </div>
+    </section>
+
+    <!-- hotel profile start -->
+    <section class="hotel-profile mt-5">
+        <div class="container ">
+            <div class="profile-wrap">
+
+                <!-- hotel ptofile top start  -->
+                <div class="hotel-profile-top p-3 position-relative rounded-3">
+                    <div class="row">
+                        <!-- top left hotel img  -->
+                        <div class="col-5">
+                            <div class="hotel-profile-imgs position-relative">
+                                <img src="https://www.checkatrade.com/blog/wp-content/uploads/2021/04/Feature-cost-to-build-a-hotel.jpg" width="100%" class="view-img object-fit-cover rounded" alt="">
+                                <div class="row  g-2" style="margin-top:2px;">
+                                    <div class="col"><img src="https://promos.makemytrip.com/AltAcco/images/hotel.png" alt="" height="100%" width="100%" class="thum-img rounded object-fit-cover"></div>
+                                    <div class="col"><img src="https://ik.imagekit.io/tvlk/blog/2022/06/Hotel-di-Jakarta-dengan-Balkon-Somerset-Sudirman-Jakarta-2-1024x683.jpeg?tr=dpr-2,w-675" height="100%" width="100%" alt="" class="thum-img rounded object-fit-cover"></div>
+                                    <div class="col"><img src="https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/900/450/75/dam/wdpro-assets/dlr/places-to-stay/disneyland-hotel/resort-overview/disneyland-hotel-06.jpg?1711985603030" alt="" height="100%" width="100%" class="thum-img rounded object-fit-cover"></div>
+                                    <div class="col"><img src="https://www.hotelscombined.com/himg/9c/72/27/expediav2-16231-974f5a-282122.jpg" height="100%" width="100%" alt="" class="thum-img rounded object-fit-cover"></div>
+                                </div>
+                                <!-- positon absolute elements start -->
+                                <div class="position-absolute px-2 py-1 rounded-end " style="top: 20px; left: 0; background : rgba(255, 255, 255, .65); font-size: 14px;">
+                                    <i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular
+                                </div>
+                                <!-- positon absolute elements end -->
+                            </div>
+
+                        </div>
+
+                        <!-- top right hotel info  -->
+                        <div class="col-7">
+                            <div class="hotel-profile-info ">
+                                <div class="row ">
+
+                                    <!-- left title & details  -->
+                                    <div class="col-8">
+
+                                            <h5 class="card-title d-inline-block" title="Click to Copy!">Hotel The Cox Today   </h5>
+                                            <div class="position-relative d-inline">
+                                                <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                    <span class="down-arrow"></span>
+                                                </small>
+                                            </div>
+
+                                        <a href="#" target="blank" class="reviews mb-2 mt-2 d-block">
+                                            <span class="btn ">4.2<span style="color: #fff; opacity: 86%">/5</span></span>Very Good <small>624 Reviews</small>
+                                        </a>
+                                        <small class="mt-2 location ">
+                                            <i class="fa-solid fa-location-dot me-2"></i>City, State, Country.
+                                            <span class="ms-3 map"><i class="fa-solid fa-earth-americas me-2"></i>See Map</span>
+
+                                        <!-- <div class="position-absolute location-frame">
+                                                <iframe  src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=52.70967533219885, -8.020019531250002&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+                                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                                </iframe>
+                                            </div> -->
+
+                                        </small>
+
+                                        <a href="#" class="room-qty mb-1 d-block"><i class="fa-solid fa-up-right-from-square me-3"></i>7 Rooms Available <i class="fa-solid fa-award ms-3 me-2"></i>Top Sell</a>
+
+                                        <!--facilities-max 3 and max-character is 50  -->
+                                        <small class="d-block  facilities">
+                                            <h5>Top Facilities</h5>
+                                            <i class="fa-regular fa-square-check me-2"></i>Free cancellation & No Need Prepayment <br>
+                                            <i class="fa-regular fa-square-check me-2"></i>Air Conditioning & 24/7 Hours Home Services <br>
+                                            <i class="fa-regular fa-square-check me-2"></i>Children stay for free up to 10 years <br>
+                                            <button class="border-0 ps-0" id="facilityBtn"  data-bs-target="#facility" aria-controls="facility" style="color: var(--primary-color);background: var(--bg-color);">See More</button>
+                                        </small>
+                                        <!--facilities-max 3 and max-character is 50  -->
+                                        <small class="d-block  facilities">
+                                            <h5>What's Nearby</h5>
+                                            <i class="fa-solid fa-diamond-turn-right me-2"></i>16.5 km from Himchori Waterfall <br>
+                                            <i class="fa-solid fa-diamond-turn-right me-2"></i>3.2 km from Cox's Bazar Airport <br>
+                                            <i class="fa-solid fa-diamond-turn-right me-2"></i> 0.25 km from Navy Jetty, from where Saint Martin bound ship sails <br>
+                                            <button class="border-0 ps-0"  id="nearbyBtn"   data-bs-target="#nearby" aria-controls="nearby" style="color: var(--primary-color);background: var(--bg-color);">See More</button>
+                                        </small>
+
+                                        <small class="d-block  facilities">
+                                            With a stay at Hotel The Cox Today in Cox's Bazar, you'll be steps from... <br>
+                                            <button id="openAboutPopupBtn" class="border-0 ps-0 " style="color: var(--primary-color);background: var(--bg-color);">Read More</button>
+                                        </small>
+
+                                    </div>
+
+                                    <!-- right star & price  -->
+                                    <div class="col-4 ">
+                                        <div class="" >
+                                            <div class="float-end  star-rate  rounded" style="margin-bottom: 38px;"><i class="fa-solid fa-star me-1"></i>5 Star</div>
+
+                                            <div class="text-end  ms-auto" >
+                                                <span class="btn border-0 btn-warning py-1 " style="margin-right: -16px; padding-right:24px; color: var(--title-color); padding-left:80px;  border-radius: 5px 0px 0px 5px; background: var(--secondary-color)">70% off</span>
+                                                <div class="position-relative price-info mt-1">
+                                                    <span class="text-capitalize" style="font-size:13px; color:var(--primary-color); ">Limited Time offer</span>
+                                                    <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style="font-size:13px; color:var(--primary-color); "></i>
+
+                                                    <!-- price info show on hover  -->
+                                                    <div class="price-info-card p-2 rounded position-absolute">
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="">USD 94.78 × 2 Nights</div>
+                                                            <div>USD 189.56</div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="text-capitalize">Limited Time Offer</div>
+                                                            <div>- USD 19.36</div>
+                                                        </div>
+                                                        <hr class="my-2">
+                                                        <div class="d-flex justify-content-between">
+                                                            <h5>Total</h5>
+                                                            <h5>USD 170.20</h5>
+                                                        </div>
+                                                        <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a limited time, this property is offering reduced rates on some rooms that match your search.</small>
+
+                                                    </div>
+
+                                                </div>
+                                                <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">$ 120</span>
+                                                <h3 class="d-inline" style="color: var(--primary-color);">$98</h3>
+                                                <small class=d-block><span>4</span> Nights <span>2</span> Rooms <br> Incl. Taxes & Charges</small>
+
+                                            </div>
+
+                                            <div class="text-end mt-5 reserve-info">
+                                                <span class="me-3" > <i class="fa-solid fa-share-nodes"></i></span>
+                                                <span class="bt" ><i class="fa-regular fa-heart"></i></span>
+                                                <span class="mt-3 d-block price-match position-relative">
+                                                    <i class="fa-solid fa-bullhorn me-2" style="rotate: -30deg"></i>We Price Match!
+                                                    <small class="price-match-info position-absolute rounded-1 lh-base text-start  z-1 ">We aim to provide the best possible prices for our users. If you find a cheaper price elsewhere, we'll refund the difference!
+                                                        <span class="down-arrow"></span>
+                                                    </small>
+                                                </span>
+                                                <button class="btn reserve-btn mt-4">Reserve Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- hotel ptofile top end -->
+
+                <!-- tabs start  -->
+                <div class="profile-tabs mt-4">
+                    <ul class="nav nav-pills rounded-3 mb-3 ps-3" id="pills-tab" role="tablist" style="background: var(--bg-color);">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-rooms-tab" data-bs-toggle="pill" data-bs-target="#pills-rooms" type="button" role="tab" aria-controls="pills-rooms" aria-selected="true">Rooms</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="facility-tab" data-bs-toggle="pill" data-bs-target="#facility" type="button" role="tab" aria-controls="facility" aria-selected="false">Facilities & Services</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-policy-tab" data-bs-toggle="pill" data-bs-target="#pills-policy" type="button" role="tab" aria-controls="pills-policy" aria-selected="false">Policies</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-reviews-tab" data-bs-toggle="pill" data-bs-target="#pills-reviews" type="button" role="tab" aria-controls="pills-reviews" aria-selected="false">Reviews</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="nearby-tab" data-bs-toggle="pill" data-bs-target="#nearby" type="button" role="tab" aria-controls="nearby" aria-selected="false">What's Nearby</button>
+                        </li>
+                        <!-- <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-faqs-tab" data-bs-toggle="pill" data-bs-target="#pills-faqs" type="button" role="tab" aria-controls="pills-faqs" aria-selected="false">FAQs</button>
+                        </li> -->
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <!-- rooms start  -->
+                        <div class="tab-pane room mb-3 mb-lg-5 fade show active" id="pills-rooms" role="tabpanel" aria-labelledby="pills-rooms-tab" tabindex="0">
+                            <!-- Filter buttons -->
+                            <div class="room-filters p-3 d-flex rounded">
+                                <div class="filter-items rounded mx-1 p-2" data-filter="breakfast">Breakfast Included<span class="ms-1">(11)</span></div>
+                                <div class="filter-items rounded mx-1 p-2" data-filter="instant">Instant Confirmation<span class="ms-1">(16)</span></div>
+                                <div class="filter-items rounded mx-1 p-2" data-filter="prepay">Prepay Online<span class="ms-1">(19)</span></div>
+                                <div class="filter-items rounded mx-1 p-2" data-filter="payathotel">Pay at Hotel<span class="ms-1">(14)</span></div>
+                                <div class="filter-items rounded mx-1 p-2" data-filter="refundable">Refundable<span class="ms-1">(14)</span></div>
+                                <div class="filter-items rounded mx-1 p-2" data-filter="beds">2 Beds<span class="ms-1">(14)</span></div>
+                            </div>
+
+                            <div class="room-body-wrap mt-3 p-3 hotel-room rounded"  data-breakfast="true" data-instant="true" data-prepay="true" data-payathotel="true" data-refundable="true" data-beds="2">
+
+                                <div class="room-body">
+                                    <h3 class="room-title mb-3 d-inline-block" title="Click for More Details!" onclick="showRoomDetails()">Superior Twin Room</h3>
+                                    <div class="row">
+                                        <!-- room details  -->
+                                        <div class="col-3">
+                                            <div class="room-details ">
+                                                <!-- room's images  -->
+                                                <div  onclick="showRoomDetails()">
+                                                    <img class="view-img rounded object-fit-cover" src="https://promos.makemytrip.com/AltAcco/images/hotel.png"  alt="">
+                                                    <div class="row g-1" style="margin-top: .5px;">
+                                                        <div class="col">
+                                                            <img class="thum-img rounded object-fit-cover" src="https://cdn.mos.cms.futurecdn.net/JUcbVxWtm6MkiNaif3eviF.jpg" alt="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <img class="thum-img rounded  object-fit-cover" src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" alt="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <img class="thum-img rounded  object-fit-cover" src="https://www.shutterstock.com/image-photo/stylish-interior-living-room-night-600nw-1566382885.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- room's details  -->
+                                                <h5 class="text-capitalize room-sub-title mt-3"><i class="fa-solid fa-bed me-2"></i>2 single beds</h5>
+                                                <ul class="p-0 mt-3 mb-2">
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>City View</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>non smooking</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>28m<sup>2</sup> | Floor: 10-22</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>Air conditioning</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>free wifi</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>Private Bath</li>
+                                                </ul>
+                                                <button class="btn details-btn m-0 p-0"  onclick="showRoomDetails()"><i class="fa-solid fa-arrow-turn-up me-2"></i>More Details</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- room prices  -->
+                                        <div class="col-9">
+                                            <div class="room-prices">
+
+                                                <table class="table table-rounded table-bordered ">
+                                                    <thead class="table-light rounded fw-light">
+                                                        <tr >
+                                                            <th class="px-3">Package Included</th>
+                                                            <th class="text-center">Sleeps</th>
+                                                            <th class="px-3">Today's Price</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="">
+                                                        <tr class="table-row  ">
+                                                            <form action="">
+                                                                <td class="p-3">
+                                                                    <ul class="p-0 room-feature">
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Breakfast for US$14.32 (optional)</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Non-refundable</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Instant Confirmation</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Child Allowed</li>
+                                                                    </ul>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="table-title mb-2 d-block">Payment Type</span>
+                                                                        <span onclick="showRoomInfo()" class="table-title mb-2 d-block"><i class="fa-regular fa-circle-question"></i></span>
+
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="prepay" checked>
+                                                                        <label class="form-check-label" for="prepay">
+                                                                            Prepay Online
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="pay-hotel" >
+                                                                        <label class="form-check-label" for="pay-hotel">
+                                                                            Pay at Hotel
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="text-center p-3"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-user"></i></td>
+
+                                                                <!-- price col  -->
+                                                                <td class="p-3 " >
+                                                                    <div class="row table-row" >
+                                                                        <div class=" col price-modal-wrap position-relative text-end align-self-end">
+                                                                            <small class="d-block mb-2 fw-medium" style="color: var(--primary-color);">Eid Special Offer<span class="ms-1  py-1 rounded-1 px-2" style="background: var(--secondary-color); color: var(--title-color);">11% Off</span></small>
+                                                                            <span class="me-1 text-decoration-line-through" >US$107</span> <span class="fs-3 table-title">US$93</span>
+                                                                            <small style="margin-top: -6px; display: block;">Total Price: US$329 <br> 1 Room &#10005; 3 Nights Incl. Taxes</small>
+
+                                                                            <!-- room price details modal  -->
+                                                                            <div class="price-modal position-absolute rounded p-4">
+                                                                                <h5 class="text-start mb-3 text-decoration-underline" style="color: var(--title-color); font-weight: 600;">Price Details</h5>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>1 Room x 3 Nights</span>
+                                                                                    <span>US$319.55</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Taxes & Fees</span>
+                                                                                    <span>US$49.41</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Eid Special Offer <span class="text-danger">(11% Off)</span></span>
+                                                                                    <span class="text-danger">-US$40.42</span>
+                                                                                </div>
+                                                                                <hr class="my-2">
+                                                                                <div class="d-flex justify-content-between" >
+                                                                                    <span style="color: var(--title-color) ; font-weight: 600 ;">Prepay Online</span>
+                                                                                    <span style="color: var(--title-color); font-weight: 600 ;">US$328.54</span>
+                                                                                </div>
+
+                                                                                <span class="down-arrow"></span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col align-self-end">
+                                                                            <small >Only 2 Rooms Left</small>
+                                                                            <button tyle="submit" class="btn d-block mt-2 px-5">Reserve</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+
+                                                        <tr class="table-row  ">
+                                                            <form action="">
+                                                                <td class="p-3">
+                                                                    <ul class="p-0 room-feature">
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Breakfast for US$14.32 (optional)</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Non-refundable</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Instant Confirmation</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Child Allowed</li>
+                                                                    </ul>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="table-title mb-2 d-block">Payment Type</span>
+                                                                        <span onclick="showRoomInfo()" class="table-title mb-2 d-block"><i class="fa-regular fa-circle-question"></i></span>
+
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="prepay" checked>
+                                                                        <label class="form-check-label" for="prepay">
+                                                                            Prepay Online
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="pay-hotel" >
+                                                                        <label class="form-check-label" for="pay-hotel">
+                                                                            Pay at Hotel
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="text-center p-3"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-user"></i></td>
+
+                                                                <!-- price col  -->
+                                                                <td class="p-3 " >
+                                                                    <div class="row table-row" >
+                                                                        <div class=" col price-modal-wrap position-relative text-end align-self-end">
+                                                                            <small class="d-block mb-2 fw-medium" style="color: var(--primary-color);">Eid Special Offer<span class="ms-1  py-1 rounded-1 px-2" style="background: var(--secondary-color); color: var(--title-color);">11% Off</span></small>
+                                                                            <span class="me-1 text-decoration-line-through" >US$107</span> <span class="fs-3 table-title">US$93</span>
+                                                                            <small style="margin-top: -6px; display: block;">Total Price: US$329 <br> 1 Room &#10005; 3 Nights Incl. Taxes</small>
+
+                                                                            <!-- room price details modal  -->
+                                                                            <div class="price-modal position-absolute rounded p-4">
+                                                                                <h5 class="text-start mb-3 text-decoration-underline" style="color: var(--title-color); font-weight: 600;">Price Details</h5>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>1 Room x 3 Nights</span>
+                                                                                    <span>US$319.55</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Taxes & Fees</span>
+                                                                                    <span>US$49.41</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Eid Special Offer <span class="text-danger">(11% Off)</span></span>
+                                                                                    <span class="text-danger">-US$40.42</span>
+                                                                                </div>
+                                                                                <hr class="my-2">
+                                                                                <div class="d-flex justify-content-between" >
+                                                                                    <span style="color: var(--title-color) ; font-weight: 600 ;">Prepay Online</span>
+                                                                                    <span style="color: var(--title-color); font-weight: 600 ;">US$328.54</span>
+                                                                                </div>
+
+                                                                                <span class="down-arrow"></span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col align-self-end">
+                                                                            <small >Only 2 Rooms Left</small>
+                                                                            <button tyle="submit" class="btn d-block mt-2 px-5">Reserve</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+
+                                                        <tr class="table-row  ">
+                                                            <form action="">
+                                                                <td class="p-3">
+                                                                    <ul class="p-0 room-feature">
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Breakfast for US$14.32 (optional)</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Non-refundable</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Instant Confirmation</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Child Allowed</li>
+                                                                    </ul>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="table-title mb-2 d-block">Payment Type</span>
+                                                                        <span onclick="showRoomInfo()" class="table-title mb-2 d-block"><i class="fa-regular fa-circle-question"></i></span>
+
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="prepay" checked>
+                                                                        <label class="form-check-label" for="prepay">
+                                                                            Prepay Online
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="pay-hotel" >
+                                                                        <label class="form-check-label" for="pay-hotel">
+                                                                            Pay at Hotel
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="text-center p-3"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-user"></i></td>
+
+                                                                <!-- price col  -->
+                                                                <td class="p-3 " >
+                                                                    <div class="row table-row" >
+                                                                        <div class=" col price-modal-wrap position-relative text-end align-self-end">
+                                                                            <small class="d-block mb-2 fw-medium" style="color: var(--primary-color);">Eid Special Offer<span class="ms-1  py-1 rounded-1 px-2" style="background: var(--secondary-color); color: var(--title-color);">11% Off</span></small>
+                                                                            <span class="me-1 text-decoration-line-through" >US$107</span> <span class="fs-3 table-title">US$93</span>
+                                                                            <small style="margin-top: -6px; display: block;">Total Price: US$329 <br> 1 Room &#10005; 3 Nights Incl. Taxes</small>
+
+                                                                            <!-- room price details modal  -->
+                                                                            <div class="price-modal position-absolute rounded p-4">
+                                                                                <h5 class="text-start mb-3 text-decoration-underline" style="color: var(--title-color); font-weight: 600;">Price Details</h5>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>1 Room x 3 Nights</span>
+                                                                                    <span>US$319.55</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Taxes & Fees</span>
+                                                                                    <span>US$49.41</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Eid Special Offer <span class="text-danger">(11% Off)</span></span>
+                                                                                    <span class="text-danger">-US$40.42</span>
+                                                                                </div>
+                                                                                <hr class="my-2">
+                                                                                <div class="d-flex justify-content-between" >
+                                                                                    <span style="color: var(--title-color) ; font-weight: 600 ;">Prepay Online</span>
+                                                                                    <span style="color: var(--title-color); font-weight: 600 ;">US$328.54</span>
+                                                                                </div>
+
+                                                                                <span class="down-arrow"></span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col align-self-end">
+                                                                            <small >Only 2 Rooms Left</small>
+                                                                            <button tyle="submit" class="btn d-block mt-2 px-5">Reserve</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="readmore d-block" data-more="See 7 More Room's Packages Rate &#11167" data-less="See less &#11165 "></span>
+                                </div>
+
+                            </div>
+
+                            <!-- room 2  -->
+                            <div class="room-body-wrap mt-3 p-3 hotel-room rounded"  data-breakfast="true" data-instant="true" data-prepay="true" data-payathotel="true" data-refundable="true" data-beds="2">
+
+                                <div class="room-body">
+                                    <h3 class="room-title mb-3 d-inline-block" title="Click for More Details!" onclick="showRoomDetails()">Delux Room</h3>
+                                    <div class="row">
+                                        <!-- room details  -->
+                                        <div class="col-3">
+                                            <div class="room-details ">
+                                                <!-- room's images  -->
+                                                <div  onclick="showRoomDetails()">
+                                                    <img class="view-img rounded object-fit-cover" src="https://www.acaciahotelsmanila.com/wp-content/uploads/2023/05/Rooms-and-Suites-AHM-1.jpg"  alt="">
+                                                    <div class="row g-1" style="margin-top: .5px;">
+                                                        <div class="col">
+                                                            <img class="thum-img rounded object-fit-cover" src="https://cdn.mos.cms.futurecdn.net/JUcbVxWtm6MkiNaif3eviF.jpg" alt="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <img class="thum-img rounded  object-fit-cover" src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" alt="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <img class="thum-img rounded  object-fit-cover" src="https://www.shutterstock.com/image-photo/stylish-interior-living-room-night-600nw-1566382885.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- room's details  -->
+                                                <h5 class="text-capitalize room-sub-title mt-3"><i class="fa-solid fa-bed me-2"></i>2 single beds</h5>
+                                                <ul class="p-0 mt-3 mb-2">
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>City View</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>non smooking</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>28m<sup>2</sup> | Floor: 10-22</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>Air conditioning</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>free wifi</li>
+                                                    <li class="text-capitalize"><i class="fa-regular fa-square-check me-2"></i>Private Bath</li>
+                                                </ul>
+                                                <button class="btn details-btn m-0 p-0"  onclick="showRoomDetails()"><i class="fa-solid fa-arrow-turn-up me-2"></i>More Details</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- room prices  -->
+                                        <div class="col-9">
+                                            <div class="room-prices">
+
+                                                <table class="table table-rounded table-bordered ">
+                                                    <thead class="table-light rounded fw-light">
+                                                        <tr >
+                                                            <th class="px-3">Package Included</th>
+                                                            <th class="text-center">Sleeps</th>
+                                                            <th class="px-3">Today's Price</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="">
+                                                        <tr class="table-row  ">
+                                                            <form action="">
+                                                                <td class="p-3">
+                                                                    <ul class="p-0 room-feature">
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Breakfast for US$14.32 (optional)</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Non-refundable</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Instant Confirmation</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Child Allowed</li>
+                                                                    </ul>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="table-title mb-2 d-block">Payment Type</span>
+                                                                        <span onclick="showRoomInfo()" class="table-title mb-2 d-block"><i class="fa-regular fa-circle-question"></i></span>
+
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="prepay" checked>
+                                                                        <label class="form-check-label" for="prepay">
+                                                                            Prepay Online
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="pay-hotel" >
+                                                                        <label class="form-check-label" for="pay-hotel">
+                                                                            Pay at Hotel
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="text-center p-3"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-user"></i></td>
+
+                                                                <!-- price col  -->
+                                                                <td class="p-3 " >
+                                                                    <div class="row table-row" >
+                                                                        <div class=" col price-modal-wrap position-relative text-end align-self-end">
+                                                                            <small class="d-block mb-2 fw-medium" style="color: var(--primary-color);">Eid Special Offer<span class="ms-1  py-1 rounded-1 px-2" style="background: var(--secondary-color); color: var(--title-color);">11% Off</span></small>
+                                                                            <span class="me-1 text-decoration-line-through" >US$107</span> <span class="fs-3 table-title">US$93</span>
+                                                                            <small style="margin-top: -6px; display: block;">Total Price: US$329 <br> 1 Room &#10005; 3 Nights Incl. Taxes</small>
+
+                                                                            <!-- room price details modal  -->
+                                                                            <div class="price-modal position-absolute rounded p-4">
+                                                                                <h5 class="text-start mb-3 text-decoration-underline" style="color: var(--title-color); font-weight: 600;">Price Details</h5>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>1 Room x 3 Nights</span>
+                                                                                    <span>US$319.55</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Taxes & Fees</span>
+                                                                                    <span>US$49.41</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Eid Special Offer <span class="text-danger">(11% Off)</span></span>
+                                                                                    <span class="text-danger">-US$40.42</span>
+                                                                                </div>
+                                                                                <hr class="my-2">
+                                                                                <div class="d-flex justify-content-between" >
+                                                                                    <span style="color: var(--title-color) ; font-weight: 600 ;">Prepay Online</span>
+                                                                                    <span style="color: var(--title-color); font-weight: 600 ;">US$328.54</span>
+                                                                                </div>
+
+                                                                                <span class="down-arrow"></span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col align-self-end">
+                                                                            <small >Only 2 Rooms Left</small>
+                                                                            <button tyle="submit" class="btn d-block mt-2 px-5">Reserve</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+
+                                                        <tr class="table-row  ">
+                                                            <form action="">
+                                                                <td class="p-3">
+                                                                    <ul class="p-0 room-feature">
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Breakfast for US$14.32 (optional)</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Non-refundable</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Instant Confirmation</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Child Allowed</li>
+                                                                    </ul>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="table-title mb-2 d-block">Payment Type</span>
+                                                                        <span onclick="showRoomInfo()" class="table-title mb-2 d-block"><i class="fa-regular fa-circle-question"></i></span>
+
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="prepay" checked>
+                                                                        <label class="form-check-label" for="prepay">
+                                                                            Prepay Online
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="pay-hotel" >
+                                                                        <label class="form-check-label" for="pay-hotel">
+                                                                            Pay at Hotel
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="text-center p-3"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-user"></i></td>
+
+                                                                <!-- price col  -->
+                                                                <td class="p-3 " >
+                                                                    <div class="row table-row" >
+                                                                        <div class=" col price-modal-wrap position-relative text-end align-self-end">
+                                                                            <small class="d-block mb-2 fw-medium" style="color: var(--primary-color);">Eid Special Offer<span class="ms-1  py-1 rounded-1 px-2" style="background: var(--secondary-color); color: var(--title-color);">11% Off</span></small>
+                                                                            <span class="me-1 text-decoration-line-through" >US$107</span> <span class="fs-3 table-title">US$93</span>
+                                                                            <small style="margin-top: -6px; display: block;">Total Price: US$329 <br> 1 Room &#10005; 3 Nights Incl. Taxes</small>
+
+                                                                            <!-- room price details modal  -->
+                                                                            <div class="price-modal position-absolute rounded p-4">
+                                                                                <h5 class="text-start mb-3 text-decoration-underline" style="color: var(--title-color); font-weight: 600;">Price Details</h5>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>1 Room x 3 Nights</span>
+                                                                                    <span>US$319.55</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Taxes & Fees</span>
+                                                                                    <span>US$49.41</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Eid Special Offer <span class="text-danger">(11% Off)</span></span>
+                                                                                    <span class="text-danger">-US$40.42</span>
+                                                                                </div>
+                                                                                <hr class="my-2">
+                                                                                <div class="d-flex justify-content-between" >
+                                                                                    <span style="color: var(--title-color) ; font-weight: 600 ;">Prepay Online</span>
+                                                                                    <span style="color: var(--title-color); font-weight: 600 ;">US$328.54</span>
+                                                                                </div>
+
+                                                                                <span class="down-arrow"></span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col align-self-end">
+                                                                            <small >Only 2 Rooms Left</small>
+                                                                            <button tyle="submit" class="btn d-block mt-2 px-5">Reserve</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+
+                                                        <tr class="table-row  ">
+                                                            <form action="">
+                                                                <td class="p-3">
+                                                                    <ul class="p-0 room-feature">
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Breakfast for US$14.32 (optional)</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Non-refundable</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Instant Confirmation</li>
+                                                                        <li class="text-capitalize"><i class="fa-regular fa-circle-check me-2"></i>Child Allowed</li>
+                                                                    </ul>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="table-title mb-2 d-block">Payment Type</span>
+                                                                        <span onclick="showRoomInfo()" class="table-title mb-2 d-block"><i class="fa-regular fa-circle-question"></i></span>
+
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="prepay" checked>
+                                                                        <label class="form-check-label" for="prepay">
+                                                                            Prepay Online
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="prepay" id="pay-hotel" >
+                                                                        <label class="form-check-label" for="pay-hotel">
+                                                                            Pay at Hotel
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="text-center p-3"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-user"></i></td>
+
+                                                                <!-- price col  -->
+                                                                <td class="p-3 " >
+                                                                    <div class="row table-row" >
+                                                                        <div class=" col price-modal-wrap position-relative text-end align-self-end">
+                                                                            <small class="d-block mb-2 fw-medium" style="color: var(--primary-color);">Eid Special Offer<span class="ms-1  py-1 rounded-1 px-2" style="background: var(--secondary-color); color: var(--title-color);">11% Off</span></small>
+                                                                            <span class="me-1 text-decoration-line-through" >US$107</span> <span class="fs-3 table-title">US$93</span>
+                                                                            <small style="margin-top: -6px; display: block;">Total Price: US$329 <br> 1 Room &#10005; 3 Nights Incl. Taxes</small>
+
+                                                                            <!-- room price details modal  -->
+                                                                            <div class="price-modal position-absolute rounded p-4">
+                                                                                <h5 class="text-start mb-3 text-decoration-underline" style="color: var(--title-color); font-weight: 600;">Price Details</h5>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>1 Room x 3 Nights</span>
+                                                                                    <span>US$319.55</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Taxes & Fees</span>
+                                                                                    <span>US$49.41</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <span>Eid Special Offer <span class="text-danger">(11% Off)</span></span>
+                                                                                    <span class="text-danger">-US$40.42</span>
+                                                                                </div>
+                                                                                <hr class="my-2">
+                                                                                <div class="d-flex justify-content-between" >
+                                                                                    <span style="color: var(--title-color) ; font-weight: 600 ;">Prepay Online</span>
+                                                                                    <span style="color: var(--title-color); font-weight: 600 ;">US$328.54</span>
+                                                                                </div>
+
+                                                                                <span class="down-arrow"></span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col align-self-end">
+                                                                            <small >Only 2 Rooms Left</small>
+                                                                            <button tyle="submit" class="btn d-block mt-2 px-5">Reserve</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="readmore d-block" data-more="See 7 More Room's Packages Rate &#11167" data-less="See less &#11165 "></span>
+                                </div>
+
+                            </div>
+                            
+
+
+                        </div>
+                        <!-- rooms end   -->
+
+                        <!-- facilities & services start  -->
+                        <div class="tab-pane facility mb-3 mb-lg-5 fade p-4 rounded" id="facility" role="tabpanel" aria-labelledby="facility-tab" tabindex="0">
+                            
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-people-group me-2"></i>Most popular facilities</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Children's Meals Available</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Children's Pool</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Sauna</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Fitness Room</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Babysitting Services <span class="extra tag">Extra Charge</span></li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Outdoor Swimming Pool</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Hot Spring</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Bar</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Restaurant</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> 24-Hour Front Desk</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Spa <span class="extra tag">Extra Charge</span></li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Private Parking <span class="free tag">Free</span></li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Nightclub</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Meeting Room</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Wi-Fi in Public Areas <span class="free tag">Free</span></li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Children's Playground</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Hot Spring</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Massage Room</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Airport Shuttle Service</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Multi-function Room</li>
+                                    <li class="col"><i class="fa-regular fa-square-check me-1"></i> Tennis Court</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-child-reaching me-2"></i> Children's Facilities</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Children's Meals Available</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Children's Pool</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Children's Playground</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Babysitting Services <span class="extra tag">Extra Charge</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-water-ladder me-2"></i> Outdoor Swimming Pool</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Rooftop Pool</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Opening times</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Pool with View</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>Pool Bar </li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-square-parking me-2"></i> Parking</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Private Parking <span class="free tag">Free</span></li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Valet Parking</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-wifi me-2"></i> Internet</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Wi-Fi in Public Areas <span class="free tag">Free</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-utensils me-2"></i> Restaurant</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Bengoli</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Chinise</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>japanise</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-car me-2"></i> Transportation</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Airport Shuttle Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Car Rental</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Station Pick-Up Service</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-brands fa-centercode me-2"></i>  Front Desk Services</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Concierge Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Express Check-In and Check-Out</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Luggage Storage</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Tour/Ticket Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> VIP Check-In Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Front Desk Safe</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Porter/Bellhop</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Wake-up Call</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Currency Exchange</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"> <i class="fa-solid fa-bowl-food me-2"></i> Food & Drink</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Bar</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Lobby Bar</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Room Service</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize">  <i class="fa-solid fa-dumbbell me-2"></i>  Health & Wellness</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Personal Trainer</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Fitness Room</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Spa <span class="extra tag">Extra Charge</span></li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Hair Removal Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Tennis Court</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Massage Room</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Manicure</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>   Body Contouring</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Hairdressing and Beauty Center</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Sauna</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Hair Coloring</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Hot Spring</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"> <i class="fa-solid fa-person-walking me-2"></i> Activities</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Nightclub </li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>KTV </li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-shirt me-2"></i>  Cleaning Services</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Laundry Service (Off-Site)</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Ironing Service <span class="extra tag">Extra Charge</span></li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>    Guest Laundry</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Laundry Service (On-Site) <span class="extra tag">Extra Charge</span></li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Dry Cleaning <span class="extra tag">Extra Charge</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"> <i class="fa-solid fa-table me-2"></i> Business Services</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Multi-function Room</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Postal Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Secretarial Services</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Meeting Room </li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Wedding Service</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>Fax/Copying Service </li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"> <i class="fa-brands fa-accessible-icon me-2"></i>  Accessibility </h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>Pool Ramp Available </li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>   Wheelchairs Available On-Site</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Accessible Rooms Available</li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"> <i class="fa-solid fa-shield-halved me-2"></i> Safety & Security </h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>CCTV In Public Areas </li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Security Alarm</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Fire Extinguisher </li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Security Personnel</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i>  Smoke Detector </li>
+                                </ul>
+                            </div>
+
+                            <div class="facility-box">
+                                <h5 class="text-capitalize"><i class="fa-solid fa-book-atlas me-2"></i>    Languages Spoken</h5>
+                                <ul class="row row-cols-3 mt-3">
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Bengoli</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Hindi</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> English</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Chaines</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> Italian</li>
+                                    <li class="col"><i class="fa-regular fa-circle-check me-1"></i> japanes</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- facilities & services end  -->
+
+                        <!-- policy start  -->
+                        <div class="tab-pane policy mb-3 mb-lg-5 fade rounded p-4" id="pills-policy" role="tabpanel" aria-labelledby="policy-tab" tabindex="0">
+                            
+                            <!-- check in out  -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <h6>Check-in & <br> Check-out Times</h6>
+                                </div>
+                                <div class="col-4">
+                                    <p >Check-in : <strong class="ms-3">After 14:00</strong></p>
+                                    <p >Check-out : <strong class="ms-3">Before 12:00</strong></p>
+                                </div>
+                                <div class="col-4">
+                                    <p >Front Desk : <strong class="ms-3">24/7 hours</strong></p>
+                                </div>
+                            </div>
+
+                            <!-- Breakfast  -->
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <h6>Breakfast</h6>
+                                </div>
+                                <div class="col-9">
+                                    <p >Type : <strong class="ms-3">Western</strong></p>
+                                    <p >Style : <strong class="ms-3">Buffet</strong></p>
+                                    <p >Open Hours : <strong class="ms-3">[Mon - Sun] 07:00-11:00 Open</strong></p>
+                                    <table class="table mt-3 table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Age</th>
+                                                <th>Fee</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Children 5 years old and under</td>
+                                                <td>Free</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Children 6–11 years old</td>
+                                                <td>AED 65.00 (approx. US$17.70) per person</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Adult</td>
+                                                <td>AED 130.00 (approx. US$35.40) per person</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p >Additional breakfast fees are not included in the total and need to be paid at the property.</p>
+
+
+                                </div>
+                            </div>
+
+                            <!-- Child Policies  -->
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <h6>Child Policies</h6>
+                                </div>
+                                <div class="col-9">
+                                    <p >Children of all ages are welcome at this property.</p>
+                                    <p >We have recommended room types in which children can stay for free. Please ensure that the number and age of children in the search terms are correct.</p>
+                                </div>
+                            </div>
+
+                            <!-- Cribs and Extra Beds -->
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <h6>Cribs and Extra Beds</h6>
+                                </div>
+                                <div class="col-9">
+                                    <p >For all room types, cribs and extra beds can be added.</p>
+                                    <p >Fees for extra beds and cribs are not included in the total and must be paid at the hotel.</p>
+
+                                    <table class="table mt-3 table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Age</th>
+                                                <th>Fee</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Children 2 years old and under</td>
+                                                <td>Adding Crib: Free</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Children 3 years old</td>
+                                                <td>AED 180.00 (approx. US$49.01) per person per night <br>
+                                                    Adding Crib: Free</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Children 4 years old and over</td>
+                                                <td>AED 180.00 (approx. US$49.01) per person per night</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Pets  -->
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <h6>Pets </h6>
+                                </div>
+                                <div class="col-9">
+                                    <p>Pets are not allowed</p>
+                                </div>
+                            </div>
+
+                            <!-- Age Requirements -->
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <h6>Age Requirements </h6>
+                                </div>
+                                <div class="col-9">
+                                    <p>The main guest checking in must be at least 18 years old.</p>
+                                </div>
+                            </div>
+
+                            <!-- Paying at the Hotel  -->
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <h6>Paying at the Hotel </h6>
+                                </div>
+                                <div class="col-9">
+                                    <div class="row g-2 row-cols-auto pay-method">
+                                        <div class="col"><img  src="https://ak-d.tripcdn.com/images/1p11q12000bwovxei16BB.png" alt=""></div>
+                                        <div class="col"><img  src="https://ak-d.tripcdn.com/images/1p10q12000bwovk0y2B27.png" alt="..."></div>
+                                        <div class="col"><img  src="https://tds-images.thedailystar.net/sites/default/files/styles/very_big_201/public/images/2023/07/31/bkash.jpg" alt=""></div>
+                                        <div class="col"><img  src="https://mir-s3-cdn-cf.behance.net/projects/404/71de1a123637063.Y3JvcCwxMzgyLDEwODEsMzA0LDA.jpg" alt=""></div>
+                                        <div class="col"><img  src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png" alt=""></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- policy end  -->
+
+                        <!-- reviews start  -->
+                        <div class="tab-pane  review mb-3 mb-lg-5 fade rounded p-4" id="pills-reviews" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+                            
+                            <form action="">
+                                <div class="row review-filter">
+                                
+                                    <div class="col-3">
+                                        <h5 class="mb-3 mt-2" style="font-weight: 600;"><span class="rev-badge d-inline me-2 ">4.6<span>/5</span></span> Great</h5>
+                                        <div ><strong><span style="color: var(--primary-color);"> Box</span>iew</strong> <small style="font-size: 13px;">Verified Reviews</small></div>
+
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        <p class="mb-2">Filter By </p>
+                                        <div class="row ">
+                                            <div class="col">
+                                                <select class="form-select" aria-label="All rooms">
+                                                    <option selected>All Rooms Type</option>
+                                                    <option value="1">King Room </option>
+                                                    <option value="2">Twin Room</option>
+                                                    <option value="3">Delux Room</option>
+                                                    <option value="3">Couples Room</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <select class="form-select" aria-label="">
+                                                    <option selected>All Travelers</option>
+                                                    <option value="1">Business Travelers</option>
+                                                    <option value="2">Family Travelers</option>
+                                                    <option value="3">Couples Travelers</option>
+                                                    <option value="3">Friends Travelers</option>
+                                                    <option value="3">Solo Travelers</option>
+                                                    <option value="3">Other Travelers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="col-3">
+                                        <p class="mb-2">Sort By </p>
+                                        <select class="form-select" aria-label="">
+                                            <option selected>Most Relevent</option>
+                                            <option value="1">Most Recent</option>
+                                            <option value="2">Rating High</option>
+                                            <option value="3">Rating Low</option>
+                                        </select>
+                                    </div>
+                                
+                                </div>
+
+                            </form>
+
+                            <!-- user reviews start  -->
+                            <div class=" user-reviews">
+                                <hr style="margin: 34px 0px;">
+
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img class="user-photo" src="https://i2.wp.com/zubnylekarpodolsky.sk/wp-content/uploads/2013/06/blank_profile.png" alt="">
+                                        <h6 class="mt-2">Azmeel Mazlee Anuar</h6>
+                                        <div class="d-flex user-stay">
+                                            <div>
+                                                <span class="d-block text-center"><i class="fa-solid fa-bed me-2"></i></span>
+                                                <span class="d-block text-center"><i class="fa-regular fa-calendar me-2"></i></span>
+                                                <span class="d-block text-center"><i class="fa-solid fa-person-walking-luggage me-2"></i></span>
+                                            </div>
+                                            <div class="ms-1">
+                                                <span class="d-block">King Room</span>
+                                                <span class="d-block">Stayed in April 2024</span>
+                                                <span class="d-block">Business Travelers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-9">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-3 ratting"><span class="rev-badge d-inline me-2 ">5<span>/5</span></span>Outstanding</h6>
+                                            <p class="post-date m-0">21 April 2024</p>
+                                        </div>
+
+                                        <div class="user-txt-wrap mt-2">
+                                            <div class="user-text">
+                                                <p class="lh-base m-0" style="color: var(--text-color);">Initially, I was in doubt to book this hotel as their location is slightly far from city centre. But I never regret it after staying in this plush hotel. Took an Uber taxi from terminal 2 airport. Took me around 15 minutes to arrived. It was a huge complex hotel next to the sea/beach. Large check in/waiting area and well organized. Smooth check in especially booked from trips.com. The check in lady was very nice and explained me in details what facilities were available for the hotel. They have 4 lifts and the speed of the lift was fast. Got a large room. I like when they have a separate working table from the mirror. The best part was the toilet with luxurious feeling. They have bath tub and round bath space. Quality of amenities was excellent except they do not provide oral care equipment. Restaurant during breakfast was acceptable. In my opinion not many choices of food available and it appears to be influenced by Indian based chef where majority of food is Indian based food.</p>
+                                        
+                                                <span class="usertxt-readmore" data-more="read more..." data-less="read less"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3 g-2 row-cols-auto user-imgs">
+                                            <div class="col"><img  src="https://static.leonardo-hotels.com/image/leonardohotelbucharestcitycenter_room_comfortdouble2_2022_4000x2600_7e18f254bc75491965d36cc312e8111f_1200x780_mobile_3.jpeg" alt=""></div>
+                                            <div class="col"><img src="https://www.chuwab.com/images/hotel/5/20/48220/bimg_20220101172008.jpg" alt=""></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class=" user-reviews">
+                                <hr style="margin: 34px 0px;">
+
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img class="user-photo" src="https://i2.wp.com/zubnylekarpodolsky.sk/wp-content/uploads/2013/06/blank_profile.png" alt="">
+                                        <h6 class="mt-2">Azmeel Mazlee Anuar</h6>
+                                        <div class="d-flex user-stay">
+                                            <div>
+                                                <span class="d-block text-center"><i class="fa-solid fa-bed me-2"></i></span>
+                                                <span class="d-block text-center"><i class="fa-regular fa-calendar me-2"></i></span>
+                                                <span class="d-block text-center"><i class="fa-solid fa-person-walking-luggage me-2"></i></span>
+                                            </div>
+                                            <div class="ms-1">
+                                                <span class="d-block">King Room</span>
+                                                <span class="d-block">Stayed in April 2024</span>
+                                                <span class="d-block">Business Travelers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-9">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-3 ratting"><span class="rev-badge d-inline me-2 ">5<span>/5</span></span>Outstanding</h6>
+                                            <p class="post-date m-0">21 April 2024</p>
+                                        </div>
+
+                                        <div class="user-txt-wrap mt-2">
+                                            <div class="user-text">
+                                                <p class="lh-base m-0" style="color: var(--text-color);">Initially, I was in doubt to book this hotel as their location is slightly far from city centre. But I never regret it after staying in this plush hotel. Took an Uber taxi from terminal 2 airport. Took me around 15 minutes to arrived. It was a huge complex hotel next to the sea/beach. Large check in/waiting area and well organized. Smooth check in especially booked from trips.com. The check in lady was very nice and explained me in details what facilities were available for the hotel. They have 4 lifts and the speed of the lift was fast. Got a large room. I like when they have a separate working table from the mirror. The best part was the toilet with luxurious feeling. They have bath tub and round bath space. Quality of amenities was excellent except they do not provide oral care equipment. Restaurant during breakfast was acceptable. In my opinion not many choices of food available and it appears to be influenced by Indian based chef where majority of food is Indian based food.</p>
+                                        
+                                                <span class="usertxt-readmore" data-more="read more..." data-less="read less"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3 g-2 row-cols-auto user-imgs">
+                                            <div class="col"><img  src="https://static.leonardo-hotels.com/image/leonardohotelbucharestcitycenter_room_comfortdouble2_2022_4000x2600_7e18f254bc75491965d36cc312e8111f_1200x780_mobile_3.jpeg" alt=""></div>
+                                            <div class="col"><img src="https://www.chuwab.com/images/hotel/5/20/48220/bimg_20220101172008.jpg" alt=""></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class=" user-reviews">
+                                <hr style="margin: 34px 0px;">
+
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img class="user-photo" src="https://i2.wp.com/zubnylekarpodolsky.sk/wp-content/uploads/2013/06/blank_profile.png" alt="">
+                                        <h6 class="mt-2">Azmeel Mazlee Anuar</h6>
+                                        <div class="d-flex user-stay">
+                                            <div>
+                                                <span class="d-block text-center"><i class="fa-solid fa-bed me-2"></i></span>
+                                                <span class="d-block text-center"><i class="fa-regular fa-calendar me-2"></i></span>
+                                                <span class="d-block text-center"><i class="fa-solid fa-person-walking-luggage me-2"></i></span>
+                                            </div>
+                                            <div class="ms-1">
+                                                <span class="d-block">King Room</span>
+                                                <span class="d-block">Stayed in April 2024</span>
+                                                <span class="d-block">Business Travelers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-9">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-3 ratting"><span class="rev-badge d-inline me-2 ">5<span>/5</span></span>Outstanding</h6>
+                                            <p class="post-date m-0">21 April 2024</p>
+                                        </div>
+
+                                        <div class="user-txt-wrap mt-2">
+                                            <div class="user-text">
+                                                <p class="lh-base m-0" style="color: var(--text-color);">Initially, I was in doubt to book this hotel as their location is slightly far from city centre. But I never regret it after staying in this plush hotel. Took an Uber taxi from terminal 2 airport. Took me around 15 minutes to arrived. It was a huge complex hotel next to the sea/beach. Large check in/waiting area and well organized. Smooth check in especially booked from trips.com. The check in lady was very nice and explained me in details what facilities were available for the hotel. They have 4 lifts and the speed of the lift was fast. Got a large room. I like when they have a separate working table from the mirror. The best part was the toilet with luxurious feeling. They have bath tub and round bath space. Quality of amenities was excellent except they do not provide oral care equipment. Restaurant during breakfast was acceptable. In my opinion not many choices of food available and it appears to be influenced by Indian based chef where majority of food is Indian based food.</p>
+                                        
+                                                <span class="usertxt-readmore" data-more="read more..." data-less="read less"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3 g-2 row-cols-auto user-imgs">
+                                            <div class="col"><img  src="https://static.leonardo-hotels.com/image/leonardohotelbucharestcitycenter_room_comfortdouble2_2022_4000x2600_7e18f254bc75491965d36cc312e8111f_1200x780_mobile_3.jpeg" alt=""></div>
+                                            <div class="col"><img src="https://www.chuwab.com/images/hotel/5/20/48220/bimg_20220101172008.jpg" alt=""></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- user reviews end  -->
+
+                            <!-- review pagination  -->
+                            <div aria-label="review pagination ">
+                                <ul class="pagination mt-5 mb-0 justify-content-center">
+                                    <li class="page-item disabled"><a href="" class="page-link">Previous</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item " aria-current="page"><a href="#" class="page-link">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- reviews end  -->
+
+                        <!-- nearby start  -->
+                        <div class="tab-pane nearby mb-3 mb-lg-5 fade p-4 rounded" id="nearby" role="tabpanel" aria-labelledby="nearby-tab" tabindex="0" >
+                            <div class="row">
+                                <div class="col">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe class="rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.83187894154!2d90.33728812288355!3d23.780975728197344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1717647199897!5m2!1sen!2sbd"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="col">
+                                    <div class="">
+                                        <h6>Popular Points</h6>
+                                        <ul>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>16.5 km from Himchori Waterfall</li>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>3.2 km from Cox's Bazar Airport</li>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>0.6 km from Cox's Bazar Sea Beach</li>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>0.01 km from Angel Beach Cafe</li>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i> 0.25 km from Navy Jetty, from where Saint Martin bound ship sails</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="">
+                                        <h6>Nearby Transport</h6>
+                                        <ul>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>3.2 km from Cox's Bazar Airport</li>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>4 km from Cox's Bazar Rail Station</li>
+                                            <li><i class="fa-solid fa-diamond-turn-right me-2"></i>5 km from Cox's Bazar Metro Stations</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- nearby end  -->
+
+                        <!-- FAQs start  -->
+                        <!-- <div class="tab-pane faqs mb-3 mb-lg-5 fade" id="pills-faqs" role="tabpanel" aria-labelledby="pills-faqs-tab" tabindex="0">
+                            
+                        </div> -->
+                        <!-- FAQs end  -->
+                    </div>
+                </div>
+                <!-- tabs end  -->
+
+
+            </div>
+
+        </div>
+    </section>
+    <!-- hotel profile end -->
+
+    <!-- popup start  -->
+    <section>
+        <!--room more info popup  -->
+        <div id="popupWrap" class="popup-wrap">
+            <div class="d-flex justify-content-between rounded p-4 room-info-popup">
+                <div class="px-2">
+                    <span class="info-label d-block">Meals</span>
+                    <small class="d-block">&#10020; Meals not included</small>
+                    <small class="d-block">&#10020; For extra breakfasts, the charges are as follows THB 530.00 (approx. US$14.30) per person</small>
+
+                    <span class="info-label mt-2 d-block">Confirmation</span>
+                    <small class="d-block">Bookings will be confirmed instantly.</small>
+
+                    <span class="info-label mt-2 d-block">Cancellation</span>
+                    <small class="d-block">This booking cannot be modified, and no refund will be given if you cancel it.</small>
+
+                    <span class="info-label mt-2 d-block">Payment</span>
+                    <small class="d-block">Prepay the room rate online</small>
+                </div>
+
+                <div>
+                    <span onclick="closeRoomInfo()" role="button" style="font-size: 22px; color: var(--text-color); margin-top: -6px; display: block;"> &#10005; </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- room details popup  -->
+        <div id="detailPopupWrap" class="details-popup-wrap">
+            <div class="rounded px-4 py-3 room-details-popup">
+                <div class="text-end" style="margin-top: -4px;"> <span onclick="closeRoomDetails()" role="button" style="font-size: 22px; color: var(--text-color);"> &#10005; </span></div>
+
+                <div class="row ">
+                    <div class="col-8">
+                        <div class=" room-imgs">
+                            <div class="row g-2 row-cols-2">
+                                <div class="col">
+                                    <img src="https://promos.makemytrip.com/AltAcco/images/hotel.png" alt="">
+                                </div>
+                                <div class="col">
+                                    <img src="https://cdn.mos.cms.futurecdn.net/JUcbVxWtm6MkiNaif3eviF.jpg" alt="">
+                                </div>
+                                <div class="col">
+                                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" alt="">
+                                </div>
+                                <div class="col">
+                                    <img src="https://www.shutterstock.com/image-photo/stylish-interior-living-room-night-600nw-1566382885.jpg" alt="">
+                                </div>
+                                <div class="col">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Hotel-suite-living-room.jpg/640px-Hotel-suite-living-room.jpg" alt="">
+                                </div>
+                                <div class="col">
+                                    <img src="https://www.acaciahotelsmanila.com/wp-content/uploads/2023/05/Rooms-and-Suites-AHM-1.jpg" alt="">
+                                </div>
+                                <div class="col">
+                                    <img src="https://www.acaciahotelsmanila.com/wp-content/uploads/2023/05/Rooms-and-Suites-AHM-1.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class=" room-txt">
+                            <h5>Superior Twin Room </h5>
+
+                            <div class="details-box">
+                                <h6 class="mt-3"><i class="fa-solid fa-bed me-2"></i> 2 single bed (0.9m wide)</h6>
+
+                                <ul class="row row-cols-auto top mt-3">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-square-check me-2"></i>City View</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-square-check me-2"></i>non smooking</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-square-check me-2"></i>28m<sup>2</sup> | Floor: 10-22</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-square-check me-2"></i>Air conditioning</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-square-check me-2"></i>free wifi</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-square-check me-2"></i>Private Bath</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Cribs and Extra Beds</h6>
+                                <p>Cribs and extra beds can be added for this room type</p>
+
+                                <table class="table table-bordered ">
+                                    <tr>
+                                        <th style="font-weight: 500; font-size: 14px;">Age</th>
+                                        <th style="font-weight: 500; font-size: 14px;">Fee</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Children 2 years old and under</td>
+                                        <td> Adding crib: <span style="color: var(--primary-color);">Free</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Children 3 years old</td>
+                                        <td> AED 180.00 (approx. US$49.01) per person per night Adding Crib: <span style="color: var(--primary-color);">Free</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Children 4 years old and over (including adults)</td>
+                                        <td>AED 180.00 (approx. US$49.01) per person per night</td>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Accessibility</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Stair-Free Property Entrance</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Accessible Shower</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Lower Washstand</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Shower Railings</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Bathroom with Emergency Button</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="details-box">
+                                <h6>Room Amenities</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Air Conditioning  </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Shade Curtain</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Bedding: Duvet</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Bedding: Blanket Or Quilt</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Media/Technology</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> TV </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Satellite Channels </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Movie </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Smart Door Lock </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Video Streaming Services </li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Food & Drinks</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Coffee Machine </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Coffee/Tea Pot </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Bottled Water </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Electric Kettle </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Minibar </li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Bathroom facilities</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i>Private Bath </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Hair Dryer</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Bathrobe </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Towel </li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Slippers </li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Toiletries</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Toothpaste</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Room Layout and Furnishings</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Wardrobe</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Desk</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Connecting Room</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Internet and Communication Devices</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> Telephone</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i> In-room Wi-Fi</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Cleaning Services</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i>  Ironing Equipment</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Amenities</h6>
+                                <ul class="row row-cols-auto">
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i>  In-Room Safe</li>
+                                    <li class="col text-capitalize"><i class="fa-regular fa-circle-check me-1"></i>  Turn Down Service</li>
+                                </ul>
+                            </div>
+
+                            <div class="details-box">
+                                <h6>Child Policies</h6> 
+                                <p class=" mb-2" style="color: var(--primary-color);"> <i class="fa-solid fa-child me-1"></i> Children of all ages are welcome at this property</p>
+                                <p>Please add the exact number of children and their age to the search criteria, and we will provide you with a suitable room type.</p>
+                            </div>
+
+                        </div>
+
+                        <button onclick="closeRoomDetails()" class="mt-3 selectroomBtn">Select Room</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- about popup  -->
+        <div>
+            <div id="dimmedBackground" class="dimmed-background"></div>
+            <div id="about-popup" class="about-popup p-4 rounded">
+                <div class="d-flex justify-content-between">
+                    <h4>Property Intro</h4>
+                    <button id="closeAboutPopupBtn" class=" border-0">&#x2715;</button>
+                </div>
+                
+                <div class="d-flex mt-3">
+                    <h6 class="me-5">Opened: <span>2014</span></h6>
+                    <h6>Total Rooms: <span>110</span></h6>
+                </div>
+
+                <div class="p-3 rounded mt-3" style="background: var(--bg-color);">
+                    <div class="row">
+                        <div class="col-2">
+                            <h6 >Rooms Types: </h6>
+                        </div>
+                        <div class="col-10">
+                            <div class="row g-3 gx-4 row-cols-auto">
+                                <h6 class="col">Twin Room <span>40</span></h6>
+                                <h6 class="col">Family Room <span>30</span></h6>
+                                <h6 class="col">Couple Room <span>20</span></h6>
+                                <h6 class="col">Delux Room <span>20</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-3 about-text overflow-y-auto"> With a stay at Hotel The Cox Today in Cox's Bazar, you'll be steps from Wat Klang and 14 minutes by foot from The Mall Bangkapi. This 4-star   hotel is 1.7 mi (2.7 km) from Ladprao General Hospital and 1.7 mi (2.7 km) from Ramkhamheang Hospital.
+                <br>
+                <br>
+                Enjoy recreation amenities such as a fitness center or take in the view from a terrace. Additional amenities at this hotel include complimentary wireless Internet access and a communal living room.
+                <br>
+                <br>
+                Enjoy a meal at Livotel Restaurant or snacks in the coffee shop/cafe. The hotel also offers room service (during limited hours). Buffet breakfasts are available daily from 7:00 AM to 10:00 AM for a fee.
+
+                <br>
+                <br>
+                Featured amenities include a 24-hour front desk, multilingual staff, and luggage storage. Planning an event in Cox's Bazar? This hotel has 775 square feet (72 square meters) of space consisting of conference space and a meeting room. Free self parking is available onsite.
+                <br>
+                <br>
+                Make yourself at home in one of the 111 air-conditioned rooms featuring refrigerators and flat-screen televisions. Complimentary wireless Internet access keeps you connected, and digital programming is available for your entertainment. Private bathrooms with showers feature rainfall showerheads and complimentary toiletries. Conveniences include phones, as well as laptop-compatible safes and desks.</p>
+
+                
+            </div>
+        </div>
+
+    </section>
+    <!-- popup end  -->
+
+    
+
+    
+  </main>
+  <!--end main-->
+
+  <!--footer start-->
+  <section id="footer">
+    <div class="container">
+      <div class="footer-wrapping ">
+          <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
+
+              <div class="boxiew col">
+                  <div class="logo">
+                    <img src="image/logo-light.png" alt="Boxiew logo">
+                  </div>
+      
+                  <div class="contact-info">
+                    
+                    <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                    <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                    <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div>
+                    <!-- <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div> -->
+                    <!-- <div><a href="#"><i class="pt-1 fa-sharp fa-solid fa-location-dot"></i>Feroza Tower, 8th Floor, DIT Road, Malibagh Chowdhurypara, Dhaka.</a> </div> -->
+                    
+                  </div>
+              </div>
+      
+              <div class="suppliers-info col">
+                  <div><h5>Suppliers Info</h5></div>
+                  <div class="info-link">
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div> -->
+                  </div>
+              </div>
+      
+              <div class="buyers-info col">
+                  <div><h5>Buyers Info</h5></div>
+                  <div class="info-link">
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div>
+                    <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div> -->
+                  </div>
+              </div>
+      
+              <div class="boxiew-link col">
+                  <div><h5>Quick Links</h5></div>
+                  <div class="info-link">
+                    <div><a href="affiliate.html"><i class="fa-solid fa-arrow-right-long"></i>Carier</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>About Us</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Privacy Policy</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Terms & Conditions</a></div>
+                  </div>
+      
+                  <div class="follow-us ">
+                    <div><h5>Follow Us</h5></div>
+                    <div class="social-link">
+                      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                      <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                    </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      <hr>
+      <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 Boxiew Ltd || All right reserved</small></div>
+    </div>
+
+  </section>
+  <!--footer end-->
+
+
+    <!--Bootstrap cdn link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  
+
+
+    <!-- room info popup js  -->
+    <script>
+        // let body = document.querySelector("body");
+        let body = document.body;
+        let popupWrap = document.getElementById('popupWrap')
+
+        function showRoomInfo(){
+            popupWrap.classList.add('overlay')
+            popupWrap.delay('800')
+            popupWrap.fadeIn('500')
+            body.style.overflow = "hidden"
+        }
+
+        function closeRoomInfo(){
+            popupWrap.classList.remove('overlay')
+            popupWrap.delay('800')
+            popupWrap.fadeOut('500')
+            body.style.overflow = "auto"
+        }
+
+        // room details popup 
+        let detailPopupWrap = document.getElementById('detailPopupWrap')
+
+        function showRoomDetails(){
+            detailPopupWrap.classList.add('details-overlay')
+            detailPopupWrap.delay('800')
+            detailPopupWrap.fadeIn('500')
+            body.style.overflow = "hidden"
+        }
+
+        function closeRoomDetails(){
+            detailPopupWrap.classList.remove('details-overlay')
+            detailPopupWrap.delay('800')
+            detailPopupWrap.fadeOut('500')
+            body.style.overflow = "auto"
+        }
+    </script>
+
+    <!-- room body show more less js  -->
+    <script>
+        document.querySelectorAll('.readmore').forEach( function(link) {
+        link.addEventListener('click', function() {
+
+            this.closest('.room-body-wrap').classList.toggle('show');
+            });
+        });
+    </script>
+
+    <!-- room filters js  -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // Get all filter items
+        const filterItems = document.querySelectorAll('.filter-items');
+
+        // Attach click event listener to each filter item
+        filterItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                const filterType = item.getAttribute('data-filter'); // Get the filter type
+
+                // Toggle active class for clicked filter item
+                item.classList.toggle('active');
+
+                // Get all hotel room elements
+                const hotelRooms = document.querySelectorAll('.hotel-room');
+
+                // Show/hide hotel rooms based on the selected filter
+                hotelRooms.forEach(function(room) {
+                    const shouldShow = room.getAttribute(`data-${filterType}`) === "true"; // Check if room matches the filter
+
+                    // Toggle visibility of hotel room based on the filter condition
+                    room.style.display = shouldShow ? 'block' : 'none';
+                    });
+                });
+            });
+        });
+
+    </script>
+
+    <!-- show top facility & nearby btn js  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listeners to the buttons
+            document.getElementById('facilityBtn').addEventListener('click', function() {
+                // Show the 'facility' tab and hide others
+                showTabs('facility', 'facility-tab');
+            });
+
+            document.getElementById('nearbyBtn').addEventListener('click', function() {
+                // Show the 'nearby' tab and hide others
+                showTabs('nearby', 'nearby-tab');
+            });
+
+            // Function to show the specified tab and hide others
+            function showTabs(tabId, tabBtnId) {
+
+                // deactive all tab btn content
+                document.querySelectorAll('.nav-link').forEach(function(tabBtn) {
+                    tabBtn.classList.remove('active');
+                });
+
+                // Show the specified tab Btn
+                document.getElementById(tabBtnId).classList.add('active');
+
+                // Hide all tab content
+                document.querySelectorAll('.tab-pane').forEach(function(tab) {
+                    tab.classList.remove('show', 'active');
+                });
+
+                // Show the specified tab
+                document.getElementById(tabId).classList.add('show', 'active');
+            }
+
+        });
+    </script>
+
+    <!-- user review txt wrapper js  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.usertxt-readmore').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    var currentWrapper = this.closest('.user-txt-wrap');
+                    document.querySelectorAll('.user-txt-wrap.show').forEach(function(wrapper) {
+                        if (wrapper !== currentWrapper) {
+                            wrapper.classList.remove('show');
+                        }
+                    });
+                    currentWrapper.classList.toggle('show');
+                });
+            });
+        });
+    </script>
+
+     <!-- about-popup visibility and body overflow js  -->
+    <script>
+        // Get references to the elements
+        const openAboutPopupBtn = document.getElementById('openAboutPopupBtn');
+        const closeAboutPopupBtn = document.getElementById('closeAboutPopupBtn');
+        const aboutPopup = document.getElementById('about-popup');
+        const dimmedBackground = document.getElementById('dimmedBackground');
+
+        // Function to open the about-popup
+        function openAboutPopup() {
+        aboutPopup.classList.add('visible');
+        dimmedBackground.classList.add('visible');
+        // document.body.style.overflow = 'hidden';
+        dimmedBackground.delay('800');
+        dimmedBackground.fadeOut('500');
+        }
+
+        // Function to close the about-popup
+        function closeAboutPopup() {
+        aboutPopup.classList.remove('visible');
+        dimmedBackground.classList.remove('visible');
+        dimmedBackground.delay('800');
+        dimmedBackground.fadeOut('500');
+        document.body.style.overflow = 'auto';
+        }
+
+        // Attach event listeners
+        openAboutPopupBtn.addEventListener('click', openAboutPopup);
+        closeAboutPopupBtn.addEventListener('click', closeAboutPopup);
+    </script>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
