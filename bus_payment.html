@@ -11,8 +11,8 @@
 
     <style>
         :root {
-            --primary-color: #7e3ff2;
-            --primary-color-light: #efe5fd;
+            --primary-color: #1c6afb;
+            --primary-color-light: #a8c6ff;
             --secondary-color: #FDDB55;
             --secondary-color-light: #ffe478;
             --title-color: #1d1d1d;
@@ -22,7 +22,6 @@
             --light-color: white;
 
             --box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-
 
             }
     </style>
@@ -128,15 +127,96 @@
 </head>
 <body>
 
+    <!--Main Navigation-->
+    <header style="background: white;">
+        <!-- Navbar top start-->
+        <nav class="navbar bg-body-tertiary navbar-expand-md shadow-sm fixed-top">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a> -->
+            <a class="navbar-brand" href="hotel_profile.html" style="font-weight: 700; font-size: 24px; color: #1c6afb;">Nix<small style="color: #F0A70A; font-size: 24px !important;">Go</small></a>
+            <button  class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <!-- <div class="search ">
+                <form action="" role="search">
+                    <div class="input-group ">
+                    <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
+                    <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+                </div> -->
+                <ul class="navbar-nav  ms-auto ">
+                    
+                    <li class="nav-item mx-auto ms-2"><a href="holidays.html" class="nav-link">Holidays</a></li>
+                    <li class="nav-item mx-auto ms-2"><a href="holiday_details.html" class="nav-link">Holyday Details</a></li>
+                    
+                    <li class="nav-item mx-auto ms-2"><a href="hotel.html" class="nav-link">Hotel</a></li>
+                    <li class="nav-item mx-auto ms-2"><a href="hotel_profile.html" class="nav-link">Hotel Profile</a></li>
+                    <li class="nav-item mx-auto ms-2"><a href="hotel_book.html" class="nav-link">Hotel Book</a></li>
+
+                    <li class="nav-item mx-auto ms-2"><a href="flights.html" class="nav-link">Flights</a></li>
+
+                    <li class="nav-item mx-auto ms-2"><a href="bus.html" class="nav-link"> Bus Ticket</a></li>
+                    <li class="nav-item mx-auto ms-2"><a href="bus_payment.html" class="nav-link"> Bus Payment</a></li>
+
+                </ul>
+            </div>
+            </div>
+        </div>
+        </nav>
+        <!-- Navbar top end-->
+
+        <!-- nav bottom start  -->
+        <!-- <nav id="nav-bottom" class="fixed-bottom nav-bottom">
+        
+        <div class="container">
+            
+            <div >
+            <ul class="d-flex justify-content-between" >
+                <li class="nav-item text-center">
+                <a class="nav-link nav-link-sm  active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
+                </li>
+                <li class="nav-item text-center">
+                <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
+                </li>
+                <li class="nav-item text-center">
+                <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
+                </li>
+                <li class="nav-item text-center">
+                <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
+                </li>
+                <li class="nav-item text-center">
+                <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav> -->
+        <!-- nav bottom end  -->
+
+    
+    </header>
+    <!--Main Navigation-->
+
+
+
+
     <main>
-        <div class="bus-ticket-details-wrap py-5" style="background: var(--bg-color);">
+        <div class="bus-ticket-details-wrap py-5 mt-5" style="background: var(--bg-color);">
             <div class="container">
 
                 <div class="d-flex reserve shadow bg-white py-3 px-4 rounded mt-4 justify-content-between">
                     <div>
                         <span class="btn">Full Bus Reserve</span>
                         <a href="tel:+880 1722 XXXXXX">+880 1722 XXXXXX</a>
-                        <a href="mailto:hello@boxiew.com">hello@boxiew.com</a>
+                        <a href="mailto:hello@nixgo.com">hello@nixgo.com</a>
                     </div>
                     <div>
                         <span class="btn">History</span>
@@ -188,7 +268,7 @@
                                     <hr class="dotted-hr m-0">
                                     <div class="d-flex pt-2 justify-content-between">
                                         <span>eMail Address </span>
-                                        <span>hello@boxiew.com</span>
+                                        <span>hello@nixgo.com</span>
                                     </div>
 
                                 </div>
@@ -273,7 +353,7 @@
                                             <div class="bg-light rounded py-2 px-3">
                                                 <div>
                                                     <input type="radio" name="promo" id="promo2">
-                                                    <label class="promo-code" for="promo2">BOXIEW30</label>
+                                                    <label class="promo-code" for="promo2">nixgo30</label>
                                                 </div>
                                                 <small class="promo-detail">Save up to US$3 on purchashing any paribahon ticket!</small>
                                             </div>
@@ -316,6 +396,72 @@
 
 
 
+    <!--footer start-->
+    <section id="footer" style="background: #051b45; color: #f3f7ff !important; margin-top: 20px;">
+        <div class="container">
+        <div class="footer-wrapping ">
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
+
+                <div class="nixgo col">
+                    <div class="logo mb-5">
+                        <a class="navbar-brand" href="#" style="font-weight: 700; font-size: 24px; color: #1c6afb;">Nix<span style="color: #F0A70A;">Go</span></a>
+                    </div>
+        
+                    <div class="contact-info">
+                        
+                        <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
+                        <div class="mb-2"><a href="mailto:hello@nixgo.com"><i class="fa-solid fa-envelope"></i>hello@nixgo.com</a></div>
+                    
+                    </div>
+                </div>
+        
+                <div class="suppliers-info col">
+                    <div><h5>Hotels Info</h5></div>
+                    <div class="info-link">
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sheraton</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                        <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div> -->
+                    </div>
+                </div>
+        
+                <div class="buyers-info col">
+                    <div><h5>Travel Info</h5></div>
+                    <div class="info-link">
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Bus</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Train</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Air</a></div>
+                    </div>
+                </div>
+        
+                <div class="nixgo-link col">
+                    <div><h5>Quick Links</h5></div>
+                    <div class="info-link">
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>About Us</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Privacy Policy</a></div>
+                        <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Terms & Conditions</a></div>
+                    </div>
+        
+                    <div class="follow-us ">
+                        <div><h5>Follow Us</h5></div>
+                        <div class="social-link">
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 NixGo || All right reserved</small></div>
+        </div>
+
+    </section>
+    <!--footer end-->
 
 
 

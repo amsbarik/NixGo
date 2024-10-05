@@ -25,9 +25,11 @@
 
     <!-- root css  -->
     <style>
+        /* var(--primary-color-dark) */
         :root {
-            --primary-color: #7e3ff2;
-            --primary-color-light: #efe5fd;
+            --primary-color-dark: #115eec;
+            --primary-color: #1c6afb;
+            --primary-color-light: #dfe9fb;
             --secondary-color: #FDDB55;
             --secondary-color-light: #ffe478;
             --title-color: #1d1d1d;
@@ -133,7 +135,7 @@
         }
         .hotel-profile-info .reviews .btn{
             font-weight: 500 !important;
-            background: #9965f4 ;
+            background: var(--primary-color);
             color: var(--light-color);
             border-radius: 16px 16px 16px 0px;
             padding:  0px 12px !important;
@@ -321,7 +323,7 @@
             border: none;
         }
         .btn:hover{
-            background: #6002EE;
+            background: var(--primary-color-dark);
             color: var(--light-color);
         }
         .profile-tabs .nav .nav-item .active{
@@ -565,7 +567,7 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #7e3ff280;
+            border: 2px solid var(--primary-color)80;
         }
         .profile-tabs .review .user-reviews .user-imgs img{
             width: 120px;
@@ -820,90 +822,97 @@
 </head>
 <body>
   <!--Main Navigation-->
-  <header>
+  <header style="background: white;">
     <!-- Navbar top start-->
     <nav class="navbar bg-body-tertiary navbar-expand-md shadow-sm fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a>
+    <div class="container">
+        <!-- <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a> -->
+        <a class="navbar-brand" href="hotel_profile.html" style="font-weight: 700; font-size: 24px; color: #1c6afb;">Nix<small style="color: #F0A70A; font-size: 24px !important;">Go</small></a>
         <button  class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
         
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
+        <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
+        </div>
+        <div class="offcanvas-body">
             <!-- <div class="search ">
-              <form action="" role="search">
+            <form action="" role="search">
                 <div class="input-group ">
-                  <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
-                  <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
+                <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-              </form>
+            </form>
             </div> -->
             <ul class="navbar-nav  ms-auto ">
-              <li class="nav-item mx-auto"><a href="listing.html" class="nav-link"> Listing</a></li>
-              <li class="nav-item mx-auto"><a href="shopping.html" class="nav-link">Shopping</a></li>
-              <li class="nav-item mx-auto"><a href="wishlist.html" class="nav-link">Wishlist</a></li>
-              <li class="nav-item mx-auto"><a href="myCart.html" class="nav-link">Cart</a></li>
-              <li class="nav-item  mx-auto" ><a href="userProfile.html"  class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket pe-2"></i>Sign In</a></li>
-              <li class="nav-item  mx-auto"><div class="add-listing button-outline rounded-pill p-0"><a href="#" class="nav-link px-4">Add Listing<i class="fa-solid fa-plus ms-2 border rounded-circle "></i></a></div></li>
-        
+                
+                <li class="nav-item mx-auto ms-2"><a href="holidays.html" class="nav-link">Holidays</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="holiday_details.html" class="nav-link">Holyday Details</a></li>
+                
+                <li class="nav-item mx-auto ms-2"><a href="hotel.html" class="nav-link">Hotel</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="hotel_profile.html" class="nav-link">Hotel Profile</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="hotel_book.html" class="nav-link">Hotel Book</a></li>
+
+                <li class="nav-item mx-auto ms-2"><a href="flights.html" class="nav-link">Flights</a></li>
+
+                <li class="nav-item mx-auto ms-2"><a href="bus.html" class="nav-link"> Bus Ticket</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="bus_payment.html" class="nav-link"> Bus Payment</a></li>
+
             </ul>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
     </nav>
     <!-- Navbar top end-->
 
     <!-- nav bottom start  -->
-    <nav id="nav-bottom" class="fixed-bottom nav-bottom">
-      
-      <div class="container">
+    <!-- <nav id="nav-bottom" class="fixed-bottom nav-bottom">
+    
+    <div class="container">
         
         <div >
-          <ul class="d-flex justify-content-between" >
+        <ul class="d-flex justify-content-between" >
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm  active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
+            <a class="nav-link nav-link-sm  active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
+            <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
+            <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
+            <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
+            <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
             </li>
-          </ul>
+        </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+    </nav> -->
     <!-- nav bottom end  -->
 
-   
-  </header>
-  <!--Main Navigation-->
+
+</header>
+<!--Main Navigation-->
 
   <!--start main-->
   <main> 
 
     
     <!-- hotel search form  -->
-    <section class="hotel-form" style="margin-top: 5rem;">
+    <!-- <section class="hotel-form" style="margin-top: 5rem;">
         <div class="container ">
             hotel form
 
         </div>
-    </section>
+    </section> -->
 
     <!-- hotel profile start -->
-    <section class="hotel-profile mt-5">
+    <section class="hotel-profile " style="padding-top: 120px;">
         <div class="container ">
             <div class="profile-wrap">
 
@@ -918,7 +927,7 @@
                                     <div class="col"><img src="https://promos.makemytrip.com/AltAcco/images/hotel.png" alt="" height="100%" width="100%" class="thum-img rounded object-fit-cover"></div>
                                     <div class="col"><img src="https://ik.imagekit.io/tvlk/blog/2022/06/Hotel-di-Jakarta-dengan-Balkon-Somerset-Sudirman-Jakarta-2-1024x683.jpeg?tr=dpr-2,w-675" height="100%" width="100%" alt="" class="thum-img rounded object-fit-cover"></div>
                                     <div class="col"><img src="https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/900/450/75/dam/wdpro-assets/dlr/places-to-stay/disneyland-hotel/resort-overview/disneyland-hotel-06.jpg?1711985603030" alt="" height="100%" width="100%" class="thum-img rounded object-fit-cover"></div>
-                                    <div class="col"><img src="https://www.hotelscombined.com/himg/9c/72/27/expediav2-16231-974f5a-282122.jpg" height="100%" width="100%" alt="" class="thum-img rounded object-fit-cover"></div>
+                                    <div class="col"><img src="https://cdn.mos.cms.futurecdn.net/JUcbVxWtm6MkiNaif3eviF.jpg" height="100%" width="100%" alt="" class="thum-img rounded object-fit-cover"></div>
                                 </div>
                                 <!-- positon absolute elements start -->
                                 <div class="position-absolute px-2 py-1 rounded-end " style="top: 20px; left: 0; background : rgba(255, 255, 255, .65); font-size: 14px;">
@@ -2511,79 +2520,71 @@
   <!--end main-->
 
   <!--footer start-->
-  <section id="footer">
+  <section id="footer" style="background: #051b45; color: #f3f7ff !important; margin-top: 20px;">
     <div class="container">
-      <div class="footer-wrapping ">
-          <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
+    <div class="footer-wrapping ">
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
 
-              <div class="boxiew col">
-                  <div class="logo">
-                    <img src="image/logo-light.png" alt="Boxiew logo">
-                  </div>
-      
-                  <div class="contact-info">
+            <div class="nixgo col">
+                <div class="logo mb-5">
+                    <a class="navbar-brand" href="#" style="font-weight: 700; font-size: 24px; color: #1c6afb;">Nix<span style="color: #F0A70A;">Go</span></a>
+                </div>
+    
+                <div class="contact-info">
                     
                     <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
-                    <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
-                    <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div>
-                    <!-- <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div> -->
-                    <!-- <div><a href="#"><i class="pt-1 fa-sharp fa-solid fa-location-dot"></i>Feroza Tower, 8th Floor, DIT Road, Malibagh Chowdhurypara, Dhaka.</a> </div> -->
-                    
-                  </div>
-              </div>
-      
-              <div class="suppliers-info col">
-                  <div><h5>Suppliers Info</h5></div>
-                  <div class="info-link">
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <div class="mb-2"><a href="mailto:hello@nixgo.com"><i class="fa-solid fa-envelope"></i>hello@nixgo.com</a></div>
+                
+                </div>
+            </div>
+    
+            <div class="suppliers-info col">
+                <div><h5>Hotels Info</h5></div>
+                <div class="info-link">
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sheraton</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
                     <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div> -->
-                  </div>
-              </div>
-      
-              <div class="buyers-info col">
-                  <div><h5>Buyers Info</h5></div>
-                  <div class="info-link">
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div>
-                    <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div> -->
-                  </div>
-              </div>
-      
-              <div class="boxiew-link col">
-                  <div><h5>Quick Links</h5></div>
-                  <div class="info-link">
-                    <div><a href="affiliate.html"><i class="fa-solid fa-arrow-right-long"></i>Carier</a></div>
+                </div>
+            </div>
+    
+            <div class="buyers-info col">
+                <div><h5>Travel Info</h5></div>
+                <div class="info-link">
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Bus</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Train</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Air</a></div>
+                </div>
+            </div>
+    
+            <div class="nixgo-link col">
+                <div><h5>Quick Links</h5></div>
+                <div class="info-link">
                     <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>About Us</a></div>
                     <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Privacy Policy</a></div>
                     <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Terms & Conditions</a></div>
-                  </div>
-      
-                  <div class="follow-us ">
+                </div>
+    
+                <div class="follow-us ">
                     <div><h5>Follow Us</h5></div>
                     <div class="social-link">
-                      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                      <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
 
-          </div>
-      </div>
-      <hr>
-      <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 Boxiew Ltd || All right reserved</small></div>
+        </div>
+    </div>
+    <hr>
+    <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 NixGo || All right reserved</small></div>
     </div>
 
-  </section>
-  <!--footer end-->
+</section>
+<!--footer end-->
 
 
     <!--Bootstrap cdn link-->

@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/slick.css">
 
-    <title>Home | Boxiew</title>
+    <title>Bus Tickets</title>
 
     <!-- root css  -->
     <style>
         :root {
-            --primary-color: #7e3ff2;
-            --primary-color-light: #efe5fd;
+          --primary-color: #1c6afb;
+          --primary-color-light: #a8c6ff;
             --secondary-color: #FDDB55;
             --secondary-color-light: #ffe478;
             --title-color: #1d1d1d;
@@ -44,173 +44,2427 @@
                 padding-left: 0px;
             }
     </style>
+
+
+<!--  filter css start  -->
+<style>
+            
+  .bus-filter-bg{
+      /* background: #f6f7fa; */
+      background: #fff;
+  }
+  .filter{
+      font-size: 18px;
+  }
+  
+  .reset-btn{
+      color: red;
+      font-size: 14px;
+  }
+  .reset-btn:hover{
+      color: red;
+  }
+  .filter-wrap hr{
+      opacity: 12% !important;
+  }
+  .filter-box {
+      height: 178px;
+      overflow: hidden;
+  }
+  .filter-box h5 {
+      font-size: 14px;
+  }
+  .filter-box label, span {
+      font-size: 13px;
+      margin-top: 3px;
+      color: #1d1d1d;
+      transition: .3s;
+  }
+  .filter-box label:hover {
+      color: var(--primary-color);
+  }
+
+  .filter-box.show {
+      height: auto;
+  }
+
+  .filter-items {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .readmore {
+      position: absolute;
+      width: 100%;
+      top: 130px;
+      left: 0;
+      background: #fff;
+      color: var(--primary-color);
+      cursor: pointer;
+  }
+
+  .readmore::before {
+      content: attr(data-more)
+  }
+
+  .filter-box.show .readmore {
+      position: relative;
+      top: auto;
+      display: block;
+  }
+
+  .filter-box.show .readmore::before {
+      content: attr(data-less)
+  }
+
+  input:checked{
+  background-color: var(--primary-color) !important;
+  border:0;
+  }
+
+  /* price-range start*/
+  .price-range, .search-property h5{
+      font-size: 14px;
+  }
+  .search-property input{
+      font-size: 13px;
+      border-radius: 5px 0px 0px 5px;
+
+  }
+  .search-property input:focus{
+      border: 1px solid var(--primary-color-light);
+  }
+  .search-property .btn{
+      border: 1px solid #ddd;
+      border-radius: 0px 5px 5px 0px;
+      border-left: 0px;
+      transition: .3s;
+      color: var(--primary-color);
+  }
+  .search-property .btn:hover{
+      border: 1px solid var(--primary-color);
+  }
+  .price-input-container { 
+      width: 100%; 
+  } 
+
+  .price-input .price-field { 
+      display: flex; 
+      margin-bottom: 22px; 
+  } 
+
+  .price-field label { 
+      margin-right: 10px; 
+      margin-top: 6px; 
+      font-size: 13px;
+      color: #1d1d1d;
+  } 
+
+  .price-field input { 
+      flex: 1; 
+      font-size: 13px;
+      color: #1d1d1d;
+      border-radius: 4px;
+      text-align: center;  
+      border: 1px solid #ddd; 
+      width: 92px;
+      /* background: #e4e4e4;  */
+  } 
+  .price-field input:focus{
+      border: 1px solid var(--primary-color-light);
+      outline: none;
+
+  }
+
+  .price-input { 
+      width: 100%; 
+      font-size: 19px; 
+      color: var(--primary-color); 
+  } 
+
+  /* Remove Arrows/Spinners */
+  input::-webkit-outer-spin-button, 
+  input::-webkit-inner-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+  } 
+
+  .slider-container { 
+      width: 100%; 
+  } 
+
+  .slider-container { 
+      height: 2px; 
+      position: relative; 
+      background: #e4e4e4; 
+      border-radius: 5px; 
+  } 
+
+  .slider-container .price-slider { 
+      height: 100%; 
+      left: 0%; 
+      right: 15%; 
+      position: absolute; 
+      border-radius: 5px; 
+      background: var(--primary-color); 
+  } 
+
+  .range-input { 
+      position: relative; 
+  } 
+
+  .range-input input { 
+      position: absolute; 
+      width: 100%; 
+      height: 4px; 
+      background: none; 
+      top: -4px; 
+      pointer-events: none; 
+      cursor: pointer; 
+      -webkit-appearance: none; 
+  } 
+
+  /* Styles for the range thumb in WebKit browsers */
+  input[type="range"]::-webkit-slider-thumb { 
+      height: 16px; 
+      width: 16px; 
+      border-radius: 70%; 
+      background: #f6f7fa; 
+      border: 2px  solid var(--primary-color);
+      pointer-events: auto; 
+      -webkit-appearance: none; 
+  } 
+  input[type="range"]::-webkit-slider-thumb:hover { 
+      height: 22px; 
+      width: 22px; 
+  } 
+
+  @media screen and (max-width: 768px) { 
+      .main { 
+          width: 80%; 
+          margin-right: 5px; 
+      } 
+
+      .custom-wrapper { 
+          width: 100%; 
+          left: 0; 
+          padding: 0 10px; 
+      } 
+
+      .projtitle { 
+          width: 100%; 
+          position: relative; 
+          right: 26px; 
+      } 
+
+      .price-input { 
+          flex-direction: column; 
+          align-items: center; 
+      } 
+
+      .price-field { 
+          margin-bottom: 10px; 
+      } 
+  }
+  /* price-range end*/
+</style>
+
+<!-- bus card css  -->
+<style>
+  .bus-list .list-wrap .filter-by:focus {
+      outline: none;
+      box-shadow: none;
+  }
+  .bus-list .list-wrap .card {
+      background: #fff;
+      /* background: #f6f7fa; */
+      height: 255px;
+      transition: .3s;
+      cursor: pointer;
+  }
+  .bus-list .list-wrap .card:hover {
+      /* box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px; */
+  }
+  .bus-list .list-wrap .card .bus-thum-img-view {
+      /* width: 400px;
+      height: 370px; */
+      position: absolute;
+      object-fit:cover;
+      bottom: 1px;
+      left: 167px;
+      z-index: 1000;
+  } 
+  .bus-list .list-wrap .card .bus-card-thum-img {
+      width: 100%;
+      height: 81px;
+      object-fit:cover;
+  } 
+  .bus-list .list-wrap .card .bus-card-thum-img:nth-child(n+3) {
+      margin-top: 6px;
+  } 
+  .bus-list .list-wrap .card .card-title{
+      font-size: 18px;
+      font-weight: 600;
+      color: #1d1d1d;
+      transition: .3s;
+  }
+  .bus-list .list-wrap .card .card-title:hover{
+      /* color: var(--primary-color); */
+      text-decoration: underline;
+  }
+  .bus-list .list-wrap .card .property-i{
+      color: var(--primary-color);
+      font-size: 16px;
+  } 
+  .bus-list .list-wrap .card .property-partner{
+      color: #1d1d1d;
+      position: absolute;
+      width: 290px;
+      height: 94px;
+      background: #ffe478;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 300;
+      top: 30px;
+      right: -180px;
+      border: 1px solid #fed63b;
+      display: none;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  } 
+  .bus-list .list-wrap .card .property-i:hover + .property-partner{
+      display: inline;
+  } 
+  .bus-list .list-wrap .card .property-partner .down-arrow{
+      width: 0;  
+      height: 0;  
+      border-left:16px solid transparent; 
+      border-right: 16px solid transparent; 
+      top: -14px;
+      left: 86px;
+      border-bottom: 16px solid #ffe478; 
+      position: absolute;
+  } 
+  .bus-list .list-wrap .card .bus-time,
+  .bus-list .list-wrap .card .route {
+      font-size: 14px;
+      color: var(--title-color);
+  }
+  .bus-list .list-wrap .card .bus-time i,
+  .bus-list .list-wrap .card .route i{
+      color: var(--primary-color);
+  }
+  .bus-list .list-wrap .card .bus-points{
+      font-size: 14px;
+      color: var(--title-color);
+      font-weight: 500;
+  }
+  .bus-list .list-wrap .card .bus-points i{
+      color: var(--primary-color);
+  }
+  .bus-list .list-wrap .card .ticket-info-tabs{
+      font-size: 14px;
+      color: var(--primary-color);
+  }
+  .bus-list .list-wrap .card .ticket-info-tabs .tabs-item:hover{
+      text-decoration: underline;
+  }
+  .bus-list .list-wrap .card .bus-seats {
+      color:  var(--primary-color);
+      font-weight: 500;
+      border: 1px solid var(--primary-color);
+      padding: 4px 10px;
+      font-size: 14px;
+  } 
+  .bus-list .list-wrap .card .fare-details-card {
+      color: #1d1d1d;
+      font-weight: 300;
+      font-size: 13px;
+      width: 360px;
+      /* height: 182px; */
+      background: #ffe478;
+      border: 1px solid #fed63b;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+      display:none;
+      transition: .4s;
+      top: -137px;
+      right: -10px;
+      z-index: 1000;
+  } 
+  .bus-list .list-wrap .card .ticket-fare:hover .fare-details-card {
+      display: block;
+  } 
+  .bus-list .list-wrap .card .ticket-fare h3 {
+      font-size: 28px;
+      
+  } 
+
+</style>
+
+<!-- tickek body css start  -->
+<style>
+  .bus-list .list-wrap .seats-plan .seats-info  {
+      color: var(--title-color);
+      font-size: 16px;
+  }
+  .bus-list .list-wrap .seats-plan .driver  {
+      margin-right: 40px;
+  }
+  .bus-list .list-wrap .seats-plan .driver span {
+      color: #75757580;
+      font-size: 18px;
+  }
+  .bus-list .list-wrap .seats-plan .entry {
+      height: 60px; 
+      color: var(--text-color); 
+      background: #75757514;
+  }
+  .bus-list .list-wrap .seats-plan .wheel  {
+      width: 32px;
+  }
+  .bus-list .list-wrap .seats-plan .seats-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 22px; 
+  }
+  .bus-list .list-wrap .seats-plan .seat {
+      padding: 8px;
+      cursor: pointer;
+      text-align: center;
+  }
+  .bus-list .list-wrap .seats-plan .available {
+      color: #75757580; 
+  }
+  .bus-list .list-wrap .seats-plan .booked {
+      color: var(--secondary-color); 
+  }
+  .bus-list .list-wrap .seats-plan .selected {
+      color: var(--primary-color); 
+  }
+  .bus-list .list-wrap .seats-plan .unselectable {
+      pointer-events: none; /* Prevent clicks on booked seats */
+  }
+
+
+
+  /* bus-ticket-details css */
+  .bus-list .list-wrap .bus-ticket-details table th{
+      background: var(--bg-color);
+      color: var(--title-color);
+      font-weight: 500;
+      font-size: 14px;
+      text-align: center;
+  }
+  .bus-list .list-wrap .bus-ticket-details table td{
+      background: var(--bg-color);
+      color: var(--title-color);
+      font-size: 14px;
+      text-align: center;
+  }
+  .bus-list .list-wrap .bus-ticket-details table .total{
+      border-top: 1px solid #1d1d1d20;
+      color: var(--title-color);
+      font-weight: 500;
+  }
+  .bus-list .list-wrap .bus-ticket-details .input-group select:focus{
+      box-shadow: none !important;
+      outline: none !important; 
+  }
+  .bus-list .list-wrap .bus-ticket-details .input, .bus-ticket-details .select{
+      width: 100%;
+      border: 1px solid #75757530;
+      padding: 8px;
+      font-size: 14px;
+      color: var(--text-color);
+      border-radius: 4px;
+  }
+  .bus-list .list-wrap .bus-ticket-details .input:focus, .bus-ticket-details .select:focus{
+      outline: none;
+      box-shadow: none;
+      border: 1px solid var(--primary-color);
+  }
+
+  .bus-list .list-wrap .bus-ticket-details .input-group, .bus-ticket-details .select-group{
+      /* width: 100%; */
+      border: 1px solid #75757530;
+      padding: 8px;
+      font-size: 14px;
+      color: var(--text-color);
+      border-radius: 4px;
+  }
+  .bus-list .list-wrap .bus-ticket-details .input-group:focus, .bus-ticket-details .select-group:focus{
+      outline: none;
+      box-shadow: none;
+      border: 1px solid var(--primary-color);
+  }
+  .bus-list .list-wrap .bus-ticket-details .input-group{
+      width: 78%;
+  }
+  .bus-list .list-wrap .bus-ticket-details .select-group{
+      width: 20%;
+  }
+
+  .bus-list .list-wrap .bus-ticket-details .label{
+      font-size: 14px;
+  }
+  .bus-list .list-wrap .bus-ticket-details .label span{
+      color: var(--text-color);
+  }
+  .bus-list .list-wrap .bus-ticket-details .btn{
+      background: var(--secondary-color);
+      font-weight: 500;
+      color: var(--title-color);
+      width: 100%;
+      transition: .3s;
+  }
+  .bus-list .list-wrap .bus-ticket-details .btn:hover{
+      background: var(--secondary-color-light);
+  }
+  .bus-list .list-wrap .bus-ticket-details .link{
+      color: var(--primary-color);
+      font-size: 14px;
+      transition: .3s;
+  }
+  .bus-list .list-wrap .bus-ticket-details .link:hover{
+      text-decoration: underline;
+  }
+</style>
+
+<!-- bus ticket show css  -->
+<style>
+  .ticket-wrapper {
+      height: 255px;
+      overflow: hidden;
+      background: #fff;
+      
+  }
+  .ticket-wrapper:hover {
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px !important;
+      /* border: none !important; */
+  }
+
+  .ticket-wrapper.ticket-show {
+      height: auto;
+  }
+
+  .ticket-body {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .see-ticket {
+      position: absolute;
+      width: 150px;
+      top: 202px;
+      right: 18px;
+      background: var(--secondary-color);
+      color: var(--title-color);
+      cursor: pointer;
+      text-align: center;
+      border-radius: 6px;
+      padding: 7px 0 7px 0;
+      font-size: 15px;
+  }
+  .see-ticket:hover {
+      background: var(--secondary-color-light);
+  }
+
+  .see-ticket::before {
+      content: attr(data-more)
+  }
+
+  .ticket-wrapper.ticket-show .see-ticket {
+      /* position: relative; */
+      top: 202px;
+      right: 18px;
+      /* display: block; */
+  }
+
+  .ticket-wrapper.ticket-show .see-ticket::before {
+      content: attr(data-less);
+      z-index: 1000;
+  }
+</style>
+
+<!-- bus info popup css  -->
+<style>
+  .bus-popup-wrap{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      visibility: hidden;
+      background: #1d1d1d70;
+  }
+  .overlay{
+      visibility: visible;
+  }
+  .bus-info-popup{
+      width: 740px;
+      height: 640px;
+      background: var(--light-color);
+      color: var(--title-color);
+      top: 53%;
+      left: 50%;
+      transform: translate(-53%, -50%);
+      position: absolute;
+      cursor: pointer;
+      /* border: 1px solid var(--text-color); */
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
+  .bus-info-popup .nav-item {
+      border-bottom: 1px dotted #75757560;
+  }
+  .bus-info-popup .nav-link {
+      color: var(--title-color);
+      font-weight: 500;
+  }
+  .bus-info-popup .nav-item .active{
+      background: #fff;
+      border-bottom: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      border-radius: 0px;
+  }
+  .bus-info-popup .tab-content .item{
+      font-size: 15px;
+      color: var(--title-color);
+      font-weight: 400;
+      margin-bottom: 8px;
+  }
+  .bus-info-popup .tab-content .item i{
+      color: var(--primary-color);
+  }
+  .bus-info-popup .tab-content .policy-body{
+      height: 520px;
+  }
+  .bus-info-popup .tab-content .policy-title{
+      color: var(--title-color);
+      font-size: 16px;
+      font-weight: 500;
+  }
+  .bus-info-popup .tab-content .policy-text{
+      color: var(--title-color);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+  }
+</style>
+
+
 </head>
 <body>
   <!--Main Navigation-->
-  <header>
+  <header style="background: white;">
     <!-- Navbar top start-->
     <nav class="navbar bg-body-tertiary navbar-expand-md shadow-sm fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a>
+    <div class="container">
+        <!-- <a class="navbar-brand" href="index.html" ><img src="image/logo.png" width="100" class="object-fit-cover"  alt="logo"></a> -->
+        <a class="navbar-brand" href="hotel_profile.html" style="font-weight: 700; font-size: 24px; color: #1c6afb;">Nix<small style="color: #F0A70A; font-size: 24px !important;">Go</small></a>
         <button  class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
         
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
+        <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
+        </div>
+        <div class="offcanvas-body">
             <!-- <div class="search ">
-              <form action="" role="search">
+            <form action="" role="search">
                 <div class="input-group ">
-                  <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
-                  <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="search" placeholder="Search" aria-label="Search" class="form-control"  aria-describedby="search-btn">
+                <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-              </form>
+            </form>
             </div> -->
             <ul class="navbar-nav  ms-auto ">
-              <li class="nav-item mx-auto"><a href="listing.html" class="nav-link"> Listing</a></li>
-              <li class="nav-item mx-auto"><a href="shopping.html" class="nav-link">Shopping</a></li>
-              <li class="nav-item mx-auto"><a href="wishlist.html" class="nav-link">Wishlist</a></li>
-              <li class="nav-item mx-auto"><a href="myCart.html" class="nav-link">Cart</a></li>
-              <li class="nav-item  mx-auto" ><a href="userProfile.html"  class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket pe-2"></i>Sign In</a></li>
-              <li class="nav-item  mx-auto"><div class="add-listing button-outline rounded-pill p-0"><a href="#" class="nav-link px-4">Add Listing<i class="fa-solid fa-plus ms-2 border rounded-circle "></i></a></div></li>
-        
+                
+                <li class="nav-item mx-auto ms-2"><a href="holidays.html" class="nav-link">Holidays</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="holiday_details.html" class="nav-link">Holyday Details</a></li>
+                
+                <li class="nav-item mx-auto ms-2"><a href="hotel.html" class="nav-link">Hotel</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="hotel_profile.html" class="nav-link">Hotel Profile</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="hotel_book.html" class="nav-link">Hotel Book</a></li>
+
+                <li class="nav-item mx-auto ms-2"><a href="flights.html" class="nav-link">Flights</a></li>
+
+                <li class="nav-item mx-auto ms-2"><a href="bus.html" class="nav-link"> Bus Ticket</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="bus_payment.html" class="nav-link"> Bus Payment</a></li>
+
             </ul>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
     </nav>
     <!-- Navbar top end-->
 
     <!-- nav bottom start  -->
-    <nav id="nav-bottom" class="fixed-bottom nav-bottom">
-      
-      <div class="container">
+    <!-- <nav id="nav-bottom" class="fixed-bottom nav-bottom">
+    
+    <div class="container">
         
         <div >
-          <ul class="d-flex justify-content-between" >
+        <ul class="d-flex justify-content-between" >
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm  active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
+            <a class="nav-link nav-link-sm  active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
+            <a class="nav-link nav-link-sm" href="listing.html"><i class="fa-solid fa-chart-simple"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
+            <a class="nav-link nav-link-sm" href="shopping.html"><i class="fa-solid fa-basket-shopping"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
+            <a class="nav-link nav-link-sm" href="myCart.html"><i class="fa-solid fa-cart-plus"></i></a>
             </li>
             <li class="nav-item text-center">
-              <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
+            <a class="nav-link nav-link-sm "  href="userProfile.html"><i class="fa-solid fa-user"></i></a>
             </li>
-          </ul>
+        </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+    </nav> -->
     <!-- nav bottom end  -->
 
-   
-  </header>
-  <!--Main Navigation-->
+
+</header>
+<!--Main Navigation-->
 
   <!--start main-->
   <main> 
 
 
-
-
-
-
-
-
     
+    <main style="background: var(--bg-color);">
+    <!-- bus search form  -->
+    <section class="bus-form pt-5" style="margin-top: 5rem; ">
+        <div class="container">
+            <div class="bus-form-wrap">
+                <h3>Bus Form</h3>
+            </div>
+        </div>
+    </section>
+    
+    <!-- bus list start -->
+    <section class="bus-list">
+        <div class="container">
+            <div class="bus-list-wrap">
+                <div class="row ">
+                    <!-- filter left side col start  -->
+                    <div class="col-3 ">
+                        
+                        <div class="filter-wrap shadow bus-filter-bg rounded mb-5 pb-3">
+                            <div class="d-flex px-3 pt-3 pb-2 justify-content-between ">
+                                <h5 class="filter ">Filters</h5>
+                                <button type="reset" class="btn reset-btn  p-0">Clear</button>
+                            </div>
+                            <hr class="m-0 ">
+    
+                            <!-- search property -->
+                            <div class="search-property px-3 mt-3">
+                                <h5 class="mb-2">Search Bus</h5>
+                                <form class="d-flex  " role="search">
+                                    <input class="form-control " type="search" placeholder="Bus Name" aria-label="Search">
+                                    <button class="btn " type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </form>
+                            </div>
+    
+                            <!-- operators filtrs  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Oparators (Bus)</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="swimming-pool" type="checkbox" value="" id="swimming-pool">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="swimming-pool">Saintmartin Travels</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast-included" type="checkbox" value="" id="breakfast-included">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast-included">Saintmartin Hyundai </label>
+                                        <span class="">14</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="air-onditioning" type="checkbox" value="" id="air-onditioning">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="air-onditioning">Hanif Enterprise</label>
+                                        <span class="">18</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="free-cancellation" type="checkbox" value="" id="free-cancellation">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="free-cancellation">SHOHAGH PARIBAHAN</label>
+                                        <span class="">7</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="instant-confirmation" type="checkbox" value="" id="instant-confirmation">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="instant-confirmation">Royal Coach</label>
+                                        <span class="">21</span>
+                                    </div>
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="instant-confirmation" type="checkbox" value="" id="instant-confirmation">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="instant-confirmation">Royal Coach</label>
+                                        <span class="">21</span>
+                                    </div>
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="instant-confirmation" type="checkbox" value="" id="instant-confirmation">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="instant-confirmation">Royal Coach</label>
+                                        <span class="">21</span>
+                                    </div>
+    
+    
+                                    <span class="readmore" data-more="See More 13" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+    
+                            <!--  price range -->
+                            <div class="price-range mt-3 px-3" style="margin-bottom: 34px;">
+                                <h5 class="mb-2 ">Fare (USD)</h5>
+                                <div class="price-input-container mt-3 "> 
+                                    <div class="price-input d-flex"> 
+                                        <div class="price-field me-3"> 
+                                            <label class="form-label">Min</label> 
+                                            <input type="number" class="min-input" value="10"> 
+                                        </div> 
+                                        <div class="price-field"> 
+                                            <label class="form-label">Max</label> 
+                                            <input type="number" class="max-input" value="8500"> 
+                                        </div> 
+                                    </div> 
+                                    <div class="slider-container mt-1 "> 
+                                        <div class="price-slider "> </div> 
+                                    </div> 
+                                </div> 
+    
+                                <!-- Slider -->
+                                <div class="range-input "> 
+                                    <input type="range" class="min-range" min="0" max="10000" value="10" step="1"> 
+                                    <input type="range" class="max-range" min="0" max="10000" value="8500" step="1"> 
+                                </div>
+                            </div> 
+                            <!-- <hr class="my-2 mx-3 mt-3"> -->
+    
+                            <!-- bus type  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Bus Type</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="pool" type="checkbox" value="" id="pool">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="pool">AC</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Fitness" type="checkbox" value="" id="Fitness">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Fitness">Non AC</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="desk" type="checkbox" value="" id="desk">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="desk">Travell</label>
+                                        <span class="">16</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="security" type="checkbox" value="" id="security">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="security">Economy</label>
+                                        <span class="">7</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="security" type="checkbox" value="" id="security">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="security">Business</label>
+                                        <span class="">7</span>
+                                    </div>
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="security" type="checkbox" value="" id="security">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="security">Classic</label>
+                                        <span class="">7</span>
+                                    </div>
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="security" type="checkbox" value="" id="security">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="security">Duble Dacker</label>
+                                        <span class="">7</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+    
+                            <!-- Bus Facilities  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Bus Facilities</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="bus" type="checkbox" value="" id="bus">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="bus">Water</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Resort" type="checkbox" value="" id="Resort">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Resort">Drink</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="wifi" type="checkbox" value="" id="wifi">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="wifi">Free wifi</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast" type="checkbox" value="" id="breakfast">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast">Blanket</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">Dual AC</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="wifi" type="checkbox" value="" id="wifi">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="wifi">Free wifi</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+    
+                            <!-- Boarding Points  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Boarding Points</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="bus" type="checkbox" value="" id="bus">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="bus">Mohakhali</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Resort" type="checkbox" value="" id="Resort">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Resort">Abdullapur</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast" type="checkbox" value="" id="breakfast">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast">Saidabad</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">Dhanmondi</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="wifi" type="checkbox" value="" id="wifi">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="wifi">Mirpur</label>
+                                        <span class="">11</span>
+                                    </div>
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="wifi" type="checkbox" value="" id="wifi">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="wifi">Jatrabari</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+    
+                            <!-- Dropping Points  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Dropping Points</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="bus" type="checkbox" value="" id="bus">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="bus">Cox's bazar</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Resort" type="checkbox" value="" id="Resort">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Resort">Cox's bazar sadar</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast" type="checkbox" value="" id="breakfast">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast">Jalia palong</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">Kolatoli</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="wifi" type="checkbox" value="" id="wifi">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="wifi">Laboni point</label>
+                                        <span class="">11</span>
+                                    </div>
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="wifi" type="checkbox" value="" id="wifi">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="wifi">ukhina</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+                            
+                            <!-- DEPARTURE Time  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Departure Time</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="bus" type="checkbox" value="" id="bus">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="bus">Before 06:00 AM</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Resort" type="checkbox" value="" id="Resort">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Resort">06:00 AM - 12:00 PM</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast" type="checkbox" value="" id="breakfast">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast">12:00 PM - 06:00 PM</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">After 06:00 PM</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+    
+                            <!-- Arrival Time  -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Arrival Time</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="bus" type="checkbox" value="" id="bus">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="bus">Before 06:00 AM</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Resort" type="checkbox" value="" id="Resort">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Resort">06:00 AM - 12:00 PM</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast" type="checkbox" value="" id="breakfast">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast">12:00 PM - 06:00 PM</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">After 06:00 PM</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+                            <hr class="my-2 mx-3 ">
+    
+                            <!-- Bus Brand -->
+                            <div class="filter-box mt-3 px-3">
+                                <h5 class="mb-2">Brand Bus</h5>
+                                <div class="filter-items">
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="bus" type="checkbox" value="" id="bus">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="bus">Shohag Paribahan</label>
+                                        <span class="">10</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Resort" type="checkbox" value="" id="Resort">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Resort">Ena Travell</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="breakfast" type="checkbox" value="" id="breakfast">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="breakfast">Shanti Paribahan</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">sky Line</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <div class="form-check d-flex">
+                                        <input class="form-check-input" name="Catering" type="checkbox" value="" id="Catering">
+                                        <label class="form-check-label text-capitalize ms-2 flex-grow-1" for="Catering">Scaniya</label>
+                                        <span class="">11</span>
+                                    </div>
+    
+                                    <span class="readmore" data-more="See More 7" data-less="See Less"></span>
+                                </div>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
+                    <!-- filter left side col end  -->
+    
+                    <!-- listed buss right side col start  -->
+                    <div class="col-9 ">
+                        <div class="list-wrap">
+    
+                            <!-- filter by & search qty  -->
+                            <div class="d-flex justify-content-between ">
+                                <h5 class="mt-2 pt-1"> 24 Buses Match! </h5>
+                                <select name="filter-by" class="filter-by py-2 px-3 rounded" id="" style="font-size: 14px; ">
+                                    <option value="1" selected>Popularity</option>
+                                    <option value="2">Top Rated</option>
+                                    <option value="3"> Price Low</option>
+                                    <option value="4"> Price High</option>
+                                </select>
+                            </div>
+    
+                            <!-- bus list card start  -->
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
+    
+    
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
+    
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
+                            <!-- bus list card end -->
+                        </div>
+                    </div>
+                    <!-- listed buss right site col end  -->
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bus list end -->
+    
+    
+    
+    
+    <!-- popup start  -->
+    <section>
+        <!--bus info popup  -->
+        <div id="busPopupWrap" class="bus-popup-wrap">
+            <div class="d-flex justify-content-between rounded p-4 bus-info-popup">
+    
+                <div class="px-2">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="boarding-tab" data-bs-toggle="pill" data-bs-target="#boarding" type="button" role="tab" aria-controls="boarding" aria-selected="true">Boarding Points</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="dropping-tab" data-bs-toggle="pill" data-bs-target="#dropping" type="button" role="tab" aria-controls="dropping" aria-selected="false">Dropping Points</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="facilities-tab" data-bs-toggle="pill" data-bs-target="#facilities" type="button" role="tab" aria-controls="facilities" aria-selected="false">Facilities</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="policy-tab" data-bs-toggle="pill" data-bs-target="#policy" type="button" role="tab" aria-controls="policy" aria-selected="false" >Cancellation Policy</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+    
+                        <div class="tab-pane fade show active" id="boarding" role="tabpanel" aria-labelledby="boarding-tab" tabindex="0">
+                            <ul class="row mt-4 row-cols-1 row-cols-lg-2">
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Mohakhali</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Gulistan</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Saidabad</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Mohakhali</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Mohakhali</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Mohakhali</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Mohakhali</li>
+                            </ul>
+                        </div>
+    
+                        <div class="tab-pane fade" id="dropping" role="tabpanel" aria-labelledby="dropping-tab" tabindex="0">
+                            <ul class="row mt-4 row-cols-1 row-cols-lg-2">
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Cox's Bazar</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Cox's Bazar</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Chottagram</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Chottagram</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Kolatoli</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Kolatoli</li>
+                                <li class="col item"><i class="fa-solid fa-diamond-turn-right me-2"></i>Kolatoli</li>
+                            </ul>
+                        </div>
+    
+                        <div class="tab-pane fade" id="facilities" role="tabpanel" aria-labelledby="facilities-tab" tabindex="0">
+                            <ul class="row mt-4 row-cols-1 row-cols-lg-2">
+                                <li class="col item"><i class="fa-regular fa-square-check me-2"></i>Wifi</li>
+                                <li class="col item"><i class="fa-regular fa-square-check me-2"></i>Water</li>
+                                <li class="col item"><i class="fa-regular fa-square-check me-2"></i>Blanket</li>
+                            </ul>
+                        </div>
+    
+                        <div class="tab-pane fade" id="policy" role="tabpanel" aria-labelledby="policy-tab" tabindex="0">
+                            <div class="overflow-y-auto mt-4 policy-body" >
+                                <span class="d-block policy-title">Cancellation Process:</span>
+                                <div class="policy-text mt-2">
+                                    First, you have to go to the ticket history option. You need to add your phone number/PNR/transaction ID to search for your ticket.
+                                    Click at the cancellation option. <br><br>
+                                    Your request will be submitted to our team.
+                                    Your money will be refunded with following our refund & cancellation policy.
+                                </div>
+    
+                                <span class="d-block policy-title mt-3">Cancellation Policies</span>
+                                <div class="policy-text mt-2">
+                                    Auto cancellation will happen if the customer fails to report at the reporting station 15 minutes before the bus arrives. <br>
+                                    If the customer fails to pay the full amount that mentioned in the screen will not get the activated tickets. 
+    
+                                    <br><br>
+                                    To be eligible for refund, customers need to cancel the ticket from ‘Ticket History’ a day before(Excluding 12:00 AM to 07:00 AM) the journey time. And must report the cancellation to the support center (i.e Call 89xxxxxxxx or email to info@NixGo.com).
+                                    <br><br>
+                                    Only during Eid time, customers are eligible for refund ONLY if the operator cancels the trip and cannot provide an alternative arrangement. (Note: Terms and conditions of refund policy might update or change from time to time without any notice)
+                                    <br><br>
+                                    For mobile payments, it is the responsibility of the customer to input transaction ID (if applicable), PIN, OTP properly within time to confirm his ticket by himself.
+                                    <br><br>
+                                    NixGo.com sometimes does the verification for the customer as a courtesy, but it is not NixGo’s responsibility or service promise.
+                                    <br><br>
+                                    For mobile payments, customers must complete payment and also verify transactions.
+                                    During Eid sales month, Jatri.co will not do any verification on behalf of the customers.
+                                    <br><br>
+                                    If the customer faces any hassle at the counter after purchasing tickets from NixGo.com, then the user has to give the complaint to our customer service or give an email to info@NixGo.com within 3 days(72 hours) from the departure time.
+                                </div>
+                                <span class="d-block policy-title mt-3 text-center">~ Thank You! ~</span>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <span onclick="closeBusInfo()" role="button" style="font-size: 22px; color: var(--text-color); margin-top: -6px; display: block;"> &#10005; </span>
+                </div>
+    
+            </div>
+            
+        </div>
+    </section>
+    <!-- popup end  -->
+    
+        
+    </main>
+    
+    
+    
+    
+   
 
   </main>
   <!--end main-->
 
-  <!--footer start-->
-  <section id="footer">
-    <div class="container">
-      <div class="footer-wrapping ">
-          <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
 
-              <div class="boxiew col">
-                  <div class="logo">
-                    <img src="image/logo-light.png" alt="Boxiew logo">
-                  </div>
-      
-                  <div class="contact-info">
+  <!--footer start-->
+  <section id="footer" style="background: #051b45; color: #f3f7ff !important; ">
+    <div class="container">
+    <div class="footer-wrapping ">
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 gy-4 ">
+
+            <div class="nixgo col">
+                <div class="logo mb-5">
+                    <a class="navbar-brand" href="#" style="font-weight: 700; font-size: 24px; color: #1c6afb;">Nix<span style="color: #F0A70A;">Go</span></a>
+                </div>
+    
+                <div class="contact-info">
                     
                     <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
-                    <div class="mb-2"><a href="Tel: 123-456-7890"><i class="fa-solid fa-phone"></i>+88 01721-XXXXXX</a></div>
-                    <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div>
-                    <!-- <div class="mb-2"><a href="mailto:hello@boxiew.com"><i class="fa-solid fa-envelope"></i>hello@boxiew.com</a></div> -->
-                    <!-- <div><a href="#"><i class="pt-1 fa-sharp fa-solid fa-location-dot"></i>Feroza Tower, 8th Floor, DIT Road, Malibagh Chowdhurypara, Dhaka.</a> </div> -->
-                    
-                  </div>
-              </div>
-      
-              <div class="suppliers-info col">
-                  <div><h5>Suppliers Info</h5></div>
-                  <div class="info-link">
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div>
+                    <div class="mb-2"><a href="mailto:hello@nixgo.com"><i class="fa-solid fa-envelope"></i>hello@nixgo.com</a></div>
+                
+                </div>
+            </div>
+    
+            <div class="suppliers-info col">
+                <div><h5>Hotels Info</h5></div>
+                <div class="info-link">
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sheraton</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Coxs Today</a></div>
                     <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Sell on us</a></div> -->
-                  </div>
-              </div>
-      
-              <div class="buyers-info col">
-                  <div><h5>Buyers Info</h5></div>
-                  <div class="info-link">
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From us</a></div>
-                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div>
-                    <!-- <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Buy From </a></div> -->
-                  </div>
-              </div>
-      
-              <div class="boxiew-link col">
-                  <div><h5>Quick Links</h5></div>
-                  <div class="info-link">
-                    <div><a href="affiliate.html"><i class="fa-solid fa-arrow-right-long"></i>Carier</a></div>
+                </div>
+            </div>
+    
+            <div class="buyers-info col">
+                <div><h5>Travel Info</h5></div>
+                <div class="info-link">
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Bus</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Train</a></div>
+                    <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>By Air</a></div>
+                </div>
+            </div>
+    
+            <div class="nixgo-link col">
+                <div><h5>Quick Links</h5></div>
+                <div class="info-link">
                     <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>About Us</a></div>
                     <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Privacy Policy</a></div>
                     <div><a href="#"><i class="fa-solid fa-arrow-right-long"></i>Terms & Conditions</a></div>
-                  </div>
-      
-                  <div class="follow-us ">
+                </div>
+    
+                <div class="follow-us ">
                     <div><h5>Follow Us</h5></div>
                     <div class="social-link">
-                      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                      <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
 
-          </div>
-      </div>
-      <hr>
-      <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 Boxiew Ltd || All right reserved</small></div>
+        </div>
+    </div>
+    <hr>
+    <div class="copy-right d-flex justify-content-center pb-3"> <small>Copyright © 2023 NixGo || All right reserved</small></div>
     </div>
 
-  </section>
-  <!--footer end-->
-
+</section>
+<!--footer end-->
 
     <!--Bootstrap cdn link-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   
+
+    
+        <!-- filter see more or less js  -->
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              document.querySelectorAll('.readmore').forEach(function(link) {
+                  link.addEventListener('click', function() {
+                      var currentFilterBox = this.closest('.filter-box');
+                      document.querySelectorAll('.filter-box.show').forEach(function(fBox) {
+                          if (fBox !== currentFilterBox) {
+                              fBox.classList.remove('show');
+                          }
+                      });
+                      currentFilterBox.classList.toggle('show');
+                  });
+              });
+          });
+      </script>
+  
+      <!--filter pirce range js start  -->
+      <script>
+          const rangevalue = document.querySelector(".slider-container .price-slider"); 
+          const rangeInputvalue = document.querySelectorAll(".range-input input"); 
+  
+          // Set the price gap 
+          let priceGap = 100; 
+  
+          // Adding event listners to price input elements 
+          const priceInputvalue = document.querySelectorAll(".price-input input"); 
+          for (let i = 0; i < priceInputvalue.length; i++) { 
+              priceInputvalue[i].addEventListener("input", e => { 
+  
+              // Parse min and max values of the range input 
+              let minp = parseInt(priceInputvalue[0].value); 
+              let maxp = parseInt(priceInputvalue[1].value); 
+              let diff = maxp - minp 
+  
+              if (minp < 0) { 
+                  alert("minimum price cannot be less than 0"); 
+                  priceInputvalue[0].value = 0; 
+                  minp = 0; 
+              } 
+  
+              // Validate the input values 
+              if (maxp > 10000) { 
+                  alert("maximum price cannot be greater than 10000"); 
+                  priceInputvalue[1].value = 10000; 
+                  maxp = 10000; 
+              } 
+  
+              if (minp > maxp - priceGap) { 
+                  priceInputvalue[0].value = maxp - priceGap; 
+                  minp = maxp - priceGap; 
+  
+                  if (minp < 0) { 
+                      priceInputvalue[0].value = 0; 
+                      minp = 0; 
+                  } 
+              } 
+  
+              // Check if the price gap is met 
+              // and max price is within the range 
+              if (diff >= priceGap && maxp <= rangeInputvalue[1].max) { 
+                  if (e.target.className === "min-input") { 
+                      rangeInputvalue[0].value = minp; 
+                      let value1 = rangeInputvalue[0].max; 
+                      rangevalue.style.left = `${(minp / value1) * 100}%`; 
+                  } 
+                  else { 
+                      rangeInputvalue[1].value = maxp; 
+                      let value2 = rangeInputvalue[1].max; 
+                      rangevalue.style.right = 
+                          `${100 - (maxp / value2) * 100}%`; 
+                      } 
+                  } 
+              }); 
+  
+              // Add event listeners to range input elements 
+              for (let i = 0; i < rangeInputvalue.length; i++) { 
+                  rangeInputvalue[i].addEventListener("input", e => { 
+                      let minVal = 
+                          parseInt(rangeInputvalue[0].value); 
+                      let maxVal = 
+                          parseInt(rangeInputvalue[1].value); 
+  
+                      let diff = maxVal - minVal 
+                      
+                      // Check if the price gap is exceeded 
+                      if (diff < priceGap) { 
+                      
+                          // Check if the input is the min range input 
+                          if (e.target.className === "min-range") { 
+                              rangeInputvalue[0].value = maxVal - priceGap; 
+                          } 
+                          else { 
+                              rangeInputvalue[1].value = minVal + priceGap; 
+                          } 
+                      } 
+                      else { 
+                      
+                          // Update price inputs and range progress 
+                          priceInputvalue[0].value = minVal; 
+                          priceInputvalue[1].value = maxVal; 
+                          rangevalue.style.left = 
+                              `${(minVal / rangeInputvalue[0].max) * 100}%`; 
+                          rangevalue.style.right = 
+                              `${100 - (maxVal / rangeInputvalue[1].max) * 100}%`; 
+                          } 
+                      }); 
+                  } 
+              }
+  
+      </script>
+      <!-- pirce range js end -->
+  
+      <!-- ticket show js  -->
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              document.querySelectorAll('.see-ticket').forEach(function(link) {
+                  link.addEventListener('click', function() {
+                      var currentWrapper = this.closest('.ticket-wrapper');
+                      document.querySelectorAll('.ticket-wrapper.ticket-show').forEach(function(wrapper) {
+                          if (wrapper !== currentWrapper) {
+                              wrapper.classList.remove('ticket-show');
+                          }
+                      });
+                      currentWrapper.classList.toggle('ticket-show');
+                  });
+              });
+          });
+  
+      </script>
+  
+      <!--seats number, price and class with dynamicaly js  -->
+      <script>
+          // Function to generate seat numbers based on total seats and seats per row
+          function generateSeatNumbers(totalSeats, seatsPerRow) {
+              const seatNumbers = [];
+              const rows = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''); // Customize row letters as needed
+  
+              let seatIndex = 1;
+              let rowIndex = 0;
+  
+              for (let i = 0; i < totalSeats; i++) {
+                  const seatNumber = `${rows[rowIndex]}${seatIndex}`;
+                  seatNumbers.push(seatNumber);
+  
+                  seatIndex++;
+                  if (seatIndex > seatsPerRow) {
+                      seatIndex = 1;
+                      rowIndex++;
+                  }
+              }
+  
+              return seatNumbers;
+          }
+  
+          // Function to update seat layout based on seats per row
+          function updateSeatLayout(seatsPerRow) {
+              const totalSeats = 48; // Change this to your desired total seats
+              const bookedSeats = ['B2', 'B3', 'F3', 'F4']; // Specify booked seat numbers
+  
+              const seatNumbers = generateSeatNumbers(totalSeats, seatsPerRow);
+  
+              const seatsWrapper = document.querySelector('.seats-wrapper');
+              seatsWrapper.innerHTML = ''; // Clear existing seats
+  
+              const flexBasisPercentage = 100 / seatsPerRow; // Calculate flex-basis percentage for each seat
+  
+              seatNumbers.forEach(seatNumber => {
+                  const seatDiv = document.createElement('div');
+                  seatDiv.classList.add('seat');
+                  seatDiv.setAttribute('value', seatNumber);
+                  seatDiv.style.flexBasis = `calc(${flexBasisPercentage}% - 20px)`; // Set flex-basis dynamically
+                  seatDiv.innerHTML = `<i class="fa-solid fa-couch"></i> ${seatNumber}`;
+  
+                  if (bookedSeats.includes(seatNumber)) {
+                      seatDiv.classList.add('booked');
+                      seatDiv.classList.add('unselectable');
+                  } else {
+                      const seatClass = getSeatClass(seatNumber);
+                      const seatPrice = getSeatPrice(seatNumber);
+  
+                      seatDiv.classList.add('available');
+                      seatDiv.setAttribute('data-class', seatClass);
+                      seatDiv.setAttribute('data-price', seatPrice);
+  
+                      seatDiv.addEventListener('click', () => {
+                          if (!seatDiv.classList.contains('booked')) {
+                              seatDiv.classList.toggle('selected');
+                              updateSelectedSeatsTable();
+                          }
+                      });
+                  }
+  
+                  seatsWrapper.appendChild(seatDiv);
+              });
+          }
+  
+          // Function to get seat class based on seat number (example implementation)
+          function getSeatClass(seatNumber) {
+              // Implement logic to determine seat class based on seat number
+              return 'Business'; // Default to Business class for this example
+          }
+  
+          // Function to get seat price based on seat number (example implementation)
+          function getSeatPrice(seatNumber) {
+              // Implement logic to determine seat price based on seat number
+              return 12; // Default to $100 for this example
+          }
+  
+          // Function to update the table of selected seats details
+          function updateSelectedSeatsTable() {
+              const selectedSeatsTable = document.getElementById('selectedSeatsTable');
+              const tbody = selectedSeatsTable.querySelector('tbody');
+              tbody.innerHTML = ''; // Clear existing rows
+  
+              const selectedSeats = document.querySelectorAll('.selected');
+              selectedSeats.forEach(selectedSeat => {
+                  const seatNumber = selectedSeat.getAttribute('value');
+                  const seatClass = selectedSeat.getAttribute('data-class');
+                  const seatPrice = selectedSeat.getAttribute('data-price');
+  
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                      <td>${seatNumber}</td>
+                      <td>${seatClass}</td>
+                      <td>$${seatPrice}</td>
+                  `;
+  
+                  tbody.appendChild(row);
+              });
+          }
+  
+  
+  
+          
+          // Function to calculate total fare based on selected seats
+          function calculateTotalFare() {
+          let totalFare = 0;
+          const selectedSeats = document.querySelectorAll('.selected');
+  
+          selectedSeats.forEach(selectedSeat => {
+              const seatPrice = parseFloat(selectedSeat.getAttribute('data-price'));
+              totalFare += seatPrice;
+          });
+  
+          return totalFare;
+          }
+  
+          // Function to update the table of selected seats details including total fare
+          function updateSelectedSeatsTable() {
+          const selectedSeatsTable = document.getElementById('selectedSeatsTable');
+          const tbody = selectedSeatsTable.querySelector('tbody');
+          tbody.innerHTML = ''; // Clear existing rows
+  
+          const selectedSeats = document.querySelectorAll('.selected');
+          selectedSeats.forEach(selectedSeat => {
+              const seatNumber = selectedSeat.getAttribute('value');
+              const seatClass = selectedSeat.getAttribute('data-class');
+              const seatPrice = parseFloat(selectedSeat.getAttribute('data-price')).toFixed(2);
+  
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                  <td>${seatNumber}</td>
+                  <td>${seatClass}</td>
+                  <td>$${seatPrice}</td>
+              `;
+  
+              tbody.appendChild(row);
+          });
+  
+          // Calculate total fare
+          const totalFare = calculateTotalFare().toFixed(2);
+  
+          // Update total fare row
+          const totalFareRow = document.createElement('tr');
+          totalFareRow.innerHTML = `
+              <td class="total">Total Fare</td>
+              <td class="total"></td>
+              <td class="total">$${totalFare}</td>
+          `;
+  
+          tbody.appendChild(totalFareRow);
+          }
+  
+          // Example usage to switch to 4 seats per row initially
+          updateSeatLayout(4);
+  
+          // Example usage to switch to 3 seats per row on demand (e.g., button click)
+          const switchTo3SeatsPerRowButton = document.getElementById('switchTo3SeatsPerRow');
+          switchTo3SeatsPerRowButton.addEventListener('click', () => {
+          updateSeatLayout(3);
+          });
+  
+  
+      </script>
+  
+      <!-- card thum img view js -->
+      <script>
+          // its work on multiple card 
+          // Get all card elements
+          let cards = document.getElementsByClassName("card");
+  
+          // Loop through each card
+          for (let i = 0; i < cards.length; i++) {
+              let card = cards[i];
+              let thum_img_view = card.querySelector(".bus-thum-img-view");
+              let card_thum_imgs = card.querySelectorAll(".bus-card-thum-img");
+  
+              // Add mouseover and mouseout event listeners to each card thumbnail within the current card
+              card_thum_imgs.forEach(card_thum_img => {
+                  card_thum_img.addEventListener('mouseover', () => {
+                      thum_img_view.src = card_thum_img.src;
+                      thum_img_view.style.width = "500px";
+                      thum_img_view.style.height = "252px";
+                  });
+  
+                  card_thum_img.addEventListener('mouseout', () => {
+                      thum_img_view.removeAttribute('src');
+                      thum_img_view.style.width = "0";
+                      thum_img_view.style.height = "0";
+                  });
+              });
+          }
+  
+  
+      </script>
+  
+      <!-- bus info popup js  -->
+      <script>
+          let busBody = document.querySelector("body"); 
+          let busPopupWrap = document.getElementById('busPopupWrap');
+  
+          function showBusInfo(){
+              busPopupWrap.classList.add('overlay')
+              busPopupWrap.delay('800')
+              busPopupWrap.fadeIn('500')
+              busBody.style.overflow = "hidden"
+          }
+  
+          function closeBusInfo(){
+              busPopupWrap.classList.remove('overlay')
+              busPopupWrap.delay('800')
+              busPopupWrap.fadeOut('500')
+              busBody.style.overflow = "auto"
+          }
+  
+      </script>
+  
+      <!-- show current tabs in bus info popup js  -->
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              // Add click event listeners to the buttons
+              document.getElementById('boardingBtn').addEventListener('click', function() {
+                  // Show the 'boarding' tab and hide others
+                  showTab('boarding', 'boarding-tab');
+              });
+  
+              document.getElementById('droppingBtn').addEventListener('click', function() {
+                  // Show the 'dropping' tab and hide others
+                  showTab('dropping', 'dropping-tab');
+              });
+  
+              document.getElementById('facilityBtn').addEventListener('click', function() {
+                  // Show the 'facilities' tab and hide others
+                  showTab('facilities', 'facilities-tab');
+              });
+  
+              document.getElementById('policyBtn').addEventListener('click', function() {
+                  // Show the 'policy' tab and hide others
+                  showTab('policy', 'policy-tab');
+              });
+  
+              // Function to show the specified tab and hide others
+              function showTab(tabId, tabBtnId) {
+  
+                  // deactive all tab btn content
+                  document.querySelectorAll('.nav-link').forEach(function(tabBtn) {
+                      tabBtn.classList.remove('active');
+                  });
+  
+                  // Show the specified tab Btn
+                  document.getElementById(tabBtnId).classList.add('active');
+  
+                  // Hide all tab content
+                  document.querySelectorAll('.tab-pane').forEach(function(tab) {
+                      tab.classList.remove('show', 'active');
+                  });
+  
+                  // Show the specified tab
+                  document.getElementById(tabId).classList.add('show', 'active');
+              }
+  
+          });
+      </script>
+  
+  
+      
     
 </body>
 </html>
