@@ -700,6 +700,7 @@
 
                 <li class="nav-item mx-auto ms-2"><a href="bus.html" class="nav-link"> Bus Ticket</a></li>
                 <li class="nav-item mx-auto ms-2"><a href="bus_payment.html" class="nav-link"> Bus Payment</a></li>
+                <li class="nav-item mx-auto ms-2"><a href="bus_payment.html" class="nav-link"> <span style="border: 1px solid #1C6AFB; color: #1C6AFB; " class="pb-2 px-3 pt-1 rounded">Sign/Register</span></a></li>
 
             </ul>
         </div>
@@ -745,7 +746,7 @@
 
 
     
-    <main style="background: var(--bg-color);">
+    <main style="background: var(--bg-color); padding-bottom: 80px;">
     <!-- bus search form  -->
     <section class="bus-form pt-5" style="margin-top: 5rem; ">
         <div class="container">
@@ -1401,6 +1402,950 @@
                             </div>
     
     
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
+                            <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
+                                <div class="ticket-body">
+    
+                                    <div class=" card border-0 " >
+                                        <div class="row g-0" >
+                                            <!-- card images 502*240px recomended -->
+                                            <div class="col-md-2">
+                                                <a  target="blank">
+                                                    <img src="" class="bus-thum-img-view rounded" alt="">
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg" class="bus-card-thum-img " alt="..." >
+                                                    <img src="https://www.busperego.com/uploads/slider/cropped-646b32d5c1153.webp"  class=" bus-card-thum-img" alt="thum-img" > 
+                                                    <img src="https://www.criscar.com.pe/wp-content/uploads/2016/07/Bus-KingLong-XMQ6940G-05.jpg"  class=" bus-card-thum-img" alt="thum-img"> 
+                                                </a>
+                                            </div>
+    
+                                            <!-- card content  start-->
+                                            <div class="col-md-10" >
+                                                <div class="card-body " >
+                                                    <div class="row " >
+    
+                                                        <!-- left title & details  -->
+                                                        <div class="col-9" >
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 216px;">
+                                                                <div>
+                                                                    <a  target="blank">
+                                                                        <h5 class="card-title d-inline-block" title="Click for More Info!">Saintmartin Travels   </h5>
+                                                                        <div class="position-relative d-inline">
+                                                                            <i class="fa-solid fa-bell property-i ms-2"></i>
+                                                                            <small class="property-partner  rounded-1 lh-base   z-1 ">Verified and Highly Recommended Property that is committed to providing prominent service, excellent value, and an attractive price!
+                                                                                <span class="down-arrow"></span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </a>
+                                                                
+                                                                    <small class=" mb-3 d-block" style='color: var(--title-color);'> Exclusive Sleeper Bus | AC</small>
+                                                                    
+                                                                    <small class="bus-time  d-block">
+                                                                        <i class="fa-regular fa-clock me-2"></i>Dep. Time: &nbsp; 11:00 PM 
+                                                                        <i class="fa-regular fa-clock ms-4 me-2"></i>Arr. Time: &nbsp; 10:00 AM
+                                                                    </small>
+                                                                
+                                                                    <small class="mt-2 route d-block m-0">
+                                                                        <i class="fa-solid fa-route me-2"></i>Route : Mohakhali - Saidabad - Jatrabari - Comilla - Cox's Bazar
+                                                                    </small>
+    
+                                                                    
+    
+                                                                    <div class="mt-3 d-block bus-points">
+                                                                        <i class="fa-solid fa-location-dot me-2"></i>Start Point : Mohakhali
+                                                                        <i class="fa-solid fa-location-dot ms-3 me-2"></i>End Point : Cox's Bazar
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!--links  -->
+                                                                <div onclick="showBusInfo()" class="row row-cols-auto ticket-info-tabs btn-group" role="group" aria-label="Basic example">
+                                                                    <div class="col tabs-item"  id="boardingBtn" type="button"  data-bs-target="#boarding" aria-controls="boarding" >Boarding Poins</div>
+                                                                    <div class="col tabs-item"  id="droppingBtn" type="button"  data-bs-target="#dropping" aria-controls="dropping">Dropping Poins</div>
+                                                                    <div class="col tabs-item"  id="facilityBtn" type="button" data-bs-target="#facilities" aria-controls="facilities" >Facilities</div>
+                                                                    <div class="col tabs-item"  id="policyBtn" type="button" data-bs-target="#policy" aria-controls="policy" >Cancellation Policy</div>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </div>
+    
+                                                        <!-- seats & class  -->
+                                                        <div class="col-3 ">
+                                                            <div class="d-flex align-content-between  flex-wrap" style="height: 100%;">
+                                                                <div class="ms-auto">
+                                                                    <div class="  bus-seats rounded">
+                                                                        <i class="fa-solid fa-chair me-2"></i>44 Seats Left 
+                                                                        <small class="d-block text-end">Business</small>
+                                                                    </div>
+                                                                    <div class="text-end py-1 px-2 mt-2 rounded" style="border: 1px dotted #7e3ff275; font-size: 14px;"><i class="fa-solid fa-trophy me-2" style="color:var(--primary-color);"></i>Popular </div>
+                                                                </div>
+                                                                
+                                                                <div class="text-end ms-auto ticket-fare mb-4 position-relative" >
+                                                                    <span class="text-danger text-decoration-line-through me-1" style="font-size: 16px;">US$9 <i class="fa-solid fa-circle-info ms-2 opacity-75 price-info-btn" style=" color: #7e3ff275; "></i></span>
+                                                                    <h3 style="color: var(--primary-color);">US$7.40</h3>
+    
+                                                                    <!-- price info show on hover  -->
+                                                                    <div class="fare-details-card p-2 rounded position-absolute">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="">US$9 × 2 Seats</div>
+                                                                                <div>US$18.00</div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="text-capitalize">Special Offer</div>
+                                                                                <div>- US$3.2</div>
+                                                                            </div>
+                                                                            <hr class="my-2">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <h5>Total</h5>
+                                                                                <h5>US$14.8</h5>
+                                                                            </div>
+                                                                            <small class="text-start" ><i class="fa-solid fa-quote-left me-1 mt-3" style="color: var(--primary-color);"></i>You're getting a discount because, for a Special Offer, this bus is offering reduced rates for purchase from us  </small>
+    
+                                                                        </div>
+                                                                    
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <!-- card content  end-->
+    
+                                        </div>
+                                    </div>
+    
+                                    <div style="height: 16px; background: var(--bg-color)"></div>
+    
+                                    <!-- bus seats plan  -->
+                                    <form action="" class="seats-plan-form p-4">
+                                        <div class="row">
+    
+                                            <!-- seats plan  -->
+                                            <div class="col">
+                                                <div class="seats-plan">
+    
+                                                    <div class="row seats-info">
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: #75757580;"></i>Available</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2" style="color: var(--secondary-color);"></i>Booked</div>
+                                                        <div class="col text-center"><i class="fa-solid fa-couch me-2"style="color: var(--primary-color);"></i>Selected</div>
+                                                    </div>
+                                                    
+                                                    <!-- bus seats  -->
+                                                    <div class="mt-4 rounded p-3 border" style="background: var(--bg-color);">
+                                                       <div class="d-flex justify-content-between px-3">
+                                                            <div class="entry px-4 py-3 rounded" >Entry</div>
+                                                            <div class="text-center driver mb-3">
+                                                                    <img class="wheel mb-2" src="https://i.ibb.co/HCF9F14/wheel.png" alt="wheel"> <br>
+                                                                    <span ><i class="fa-solid fa-couch"></i></span>
+                                                            </div>
+                                                       </div>
+                                                       <div style="height: 8px; background: #75757514"></div>
+    
+                                                       <div class="seats-wrapper mt-4">
+                                                        <!-- Seats will be dynamically added here -->
+                                                       </div>
+                                                    </div>
+    
+                                                    
+    
+                                                </div>
+    
+                                            </div>
+    
+                                            <!-- ticket details  -->
+                                            <div class="col">
+                                                <div class="bus-ticket-details">
+                                                    <table id="selectedSeatsTable" class="table mb-3 rounded table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Seats</th>
+                                                                <th scope="col">Class</th>
+                                                                <th scope="col">Fare</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Selected seats details will be added dynamically -->
+                                                        </tbody>
+                                                    </table>
+    
+                                                    <div class="mb-">
+                                                        <label class="mb-2 label" for="boardingPoints">Boarding Points<span class="text-danger">*</span></label>
+                                                        <select class="select mb-3" id="boardingPoints" aria-label="Boarding points">
+                                                            <option selected>Select Boarding Point</option>
+                                                            <option value="1">Mohakhali</option>
+                                                            <option value="2">Gulistan</option>
+                                                            <option value="3">Saidabad</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label class="mb-2 label" for="droppingPoints">Dropping Points<span class="text-danger">*</span></label>
+                                                        <select class="select " id="droppingPoints" aria-label="Dropping points">
+                                                            <option selected>Select Dropping Point</option>
+                                                            <option value="1">Chottogram</option>
+                                                            <option value="2">Cox's Bazar</option>
+                                                            <option value="3">Kolatoli</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <label for="depTime" class="label mb-2">Departure Time</label>
+                                                            <input type="text" class="input" id="depTime" placeholder=" Departure Time" readonly>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="depDate" class="label mb-2">Departure Date</label>
+                                                            <input type="text" class="input" id="depDate" placeholder=" Departure Date" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passName" class="label mb-2">Passenger Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="input" id="passName" placeholder="Enter Passenger Name" required>
+                                                    </div>
+    
+    
+                                                    <label for="passMobile" class="label mb-2">Mobile<span class="text-danger">*</span></label>
+                                                    <div class="  mb-3">
+                                                        <select class="select-group d-inline" name="" id="">
+                                                            <option value="">+880</option>
+                                                            <option value="">+91</option>
+                                                        </select>
+                                                        <input type="text" class="input-group  d-inline" id="passMobile" placeholder="Enter Passenger Mobile" aria-label="Text input with dropdown button">
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passMail" class="label mb-2">Email <span>(optional)</span></label>
+                                                        <input type="email" class="input" id="passMail" placeholder="Enter Passenger Email" >
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <label for="passNote" class="label mb-2">Note <span>(optional)</span></label>
+                                                        <textarea type="text" class="input" id="passNote" row="4" >You can send a note! </textarea>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn mt-4">Continue</button>
+    
+                                                    <div class="d-flex mt-4 justify-content-around">
+                                                        <a href="#" class="link">Terms & Conditions <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                        <a href="#" class="link">Cancellation Policy <i class="fa-solid fa-arrow-turn-up ms-2"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+    
+                                    <span class="see-ticket" data-more="Choose Seats" data-less="Close Seats..."></span>
+                                </div>
+    
+                            </div>
                             <div class="ticket-wrapper mt-3 mt-md-4 shadow rounded">
                                 <div class="ticket-body">
     
